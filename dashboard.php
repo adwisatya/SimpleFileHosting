@@ -1,7 +1,12 @@
 <?php
 	session_start();
+	require_once("connect/connect.php");
+	require_once("bin/file.php");
+
 	if($_SESSION['username'] == ""){
 		header("location: login.php");
+	}else{
+		$username = $_SESSION['username'];
 	}
 ?>
 
@@ -93,14 +98,34 @@
             <div class="col-md-3">
                 <div class="list-group">
                     <a href="dashboard.php" class="list-group-item">File List</a>
-                    <a href="trash.html" class="list-group-item">Trash</a>
-                    <a href="account.html" class="list-group-item">Account Information</a>
+                    <a href="trash.php" class="list-group-item">Trash</a>
+                    <a href="account.php" class="list-group-item">Account Information</a>
                 </div>
             </div>
             <!-- Content Column -->
-            <div class="col-md-9">
-                <h2>Section Heading</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, et temporibus, facere perferendis veniam beatae non debitis, numquam blanditiis necessitatibus vel mollitia dolorum laudantium, voluptate dolores iure maxime ducimus fugit.</p>
+            <div class="col-md-9" id="content">
+                <h2>My Files</h2>
+                <?php
+					$fileHandler = new File();
+					$query = $fileHandler->getList($username);
+					print '<div class="row">';
+					print '<div class="col-md-3" style="border-style:solid;">File ID</div>';
+					print '<div class="col-md-3" style="border-style:solid;">File Name</div>';
+					print '<div class="col-md-3" style="border-style:solid;">Direct Link</div>';
+					print '<div class="col-md-1" style="border-style:solid;">Action</div>';
+					print '</div>';
+
+					while($data = mysql_fetch_array($query)){
+						if($data['status']=="1"){
+							print '<div class="row">';
+							print '<div class="col-md-3">'.$data['fileid'].'</div>';
+							print '<div class="col-md-3">'.$data['filename'].'</div>';
+							print '<div class="col-md-3"><a href="files/'.$data['path'].'">Link</a></div>';
+							print '<div class="col-md-3"><a href="bin/file.php?delete='.$data['path'].'">Delete</a></div>';
+							print '</div>';
+						}
+					}
+				?>
             </div>
         </div>
         <!-- /.row -->

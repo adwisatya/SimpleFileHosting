@@ -1,10 +1,5 @@
 <?php
 	session_start();
-	/*
-	if((!isset($_SESSION['user'])) || !isset($_SESSION['passwd'])){
-		header("Location: index.php");
-	}
-	*/
 	require_once("../connect/connect.php");
 	Class Login{
 		function cekLogin($username, $password){
