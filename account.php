@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Research Assistant File Hosting - Trash</title>
+    <title>Research Assistant File Hosting - Account</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -51,10 +51,10 @@
                         <a href="about.html">About</a>
                     </li>
                     <li>
-                        <a href="dashboard.html">Dashboard</a>
+                        <a href="dashboard.php">Dashboard</a>
                     </li>
                     <li>
-                        <a href="login.html">Login/Register</a>
+                        <a href="login.php">Login/Register</a>
                     </li>
                 </ul>
             </div>
@@ -73,7 +73,7 @@
                     <small>Hello, Aryya</small>
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="index.html">Home</a>
+                    <li><a href="index.php">Home</a>
                     </li>
                     <li class="active">Dashboard</li>
                 </ol>
@@ -86,7 +86,7 @@
             <!-- Sidebar Column -->
             <div class="col-md-3">
                 <div class="list-group">
-                    <a href="dashboard.html" class="list-group-item">File List</a>
+                    <a href="dashboard.php" class="list-group-item">File List</a>
                     <a href="trash.html" class="list-group-item">Trash</a>
                     <a href="account.html" class="list-group-item">Account Information</a>
                 </div>

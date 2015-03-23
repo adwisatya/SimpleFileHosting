@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="utf-8">
@@ -8,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Research Assistant File Hosting - Index</title>
+    <title>Research Assistant File Hosting - Dashboard</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -50,10 +51,10 @@
                         <a href="about.html">About</a>
                     </li>
                     <li>
-                        <a href="dashboard.html">Dashboard</a>
+                        <a href="dashboard.php">Dashboard</a>
                     </li>
                     <li>
-                        <a href="login.html">Login/Register</a>
+                        <a href="login.php">Login/Register</a>
                     </li>
                 </ul>
             </div>
@@ -65,42 +66,38 @@
     <!-- Page Content -->
     <div class="container">
 
-        <!-- Marketing Icons Section -->
+        <!-- Page Heading/Breadcrumbs -->
         <div class="row">
-            <div class="col-lg-12" align="center">
-                <h2 class="page-header">
-                    Welcome to Research Assistant File Hosting
-                </h2>
-            </div>
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-check"></i>About this site</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>
-							Research Assistant File Hosting is free file hosting service for Research Assistant of Innovation Development Center. You can use this service freely, easily, and responsible for any risk and consequences may be applied after using this service.
-						</p>
-                    </div>
-                </div>
+            <div class="col-lg-12">
+                <h1 class="page-header">Dashboard
+                    <small>Hello, Aryya</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="index.php">Home</a>
+                    </li>
+                    <li class="active">Dashboard</li>
+                </ol>
             </div>
         </div>
         <!-- /.row -->
-       
-        <hr>
 
-        <!-- Call to Action Section -->
-        <div class="well">
-            <div class="row">
-                <div class="col-md-8">
-                    <p>
-						<i>
-							This service is still under developing phase. Please give attention due to data lost.
-						</i>
-					</p>
+        <!-- Content Row -->
+        <div class="row">
+            <!-- Sidebar Column -->
+            <div class="col-md-3">
+                <div class="list-group">
+                    <a href="dashboard.php" class="list-group-item">File List</a>
+                    <a href="trash.html" class="list-group-item">Trash</a>
+                    <a href="account.html" class="list-group-item">Account Information</a>
                 </div>
             </div>
+            <!-- Content Column -->
+            <div class="col-md-9">
+                <h2>Section Heading</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, et temporibus, facere perferendis veniam beatae non debitis, numquam blanditiis necessitatibus vel mollitia dolorum laudantium, voluptate dolores iure maxime ducimus fugit.</p>
+            </div>
         </div>
+        <!-- /.row -->
 
         <hr>
 
@@ -121,13 +118,6 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
-    <!-- Script to Activate the Carousel -->
-    <script>
-    $('.carousel').carousel({
-        interval: 5000 //changes the speed
-    })
-    </script>
 
 </body>
 

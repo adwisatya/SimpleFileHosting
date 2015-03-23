@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Research Assistant File Hosting - Dashboard</title>
+    <title>Research Assistant File Hosting - Login</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -51,10 +51,10 @@
                         <a href="about.html">About</a>
                     </li>
                     <li>
-                        <a href="dashboard.html">Dashboard</a>
+                        <a href="dashboard.php">Dashboard</a>
                     </li>
                     <li>
-                        <a href="login.html">Login/Register</a>
+                        <a href="login.php">Login/Register</a>
                     </li>
                 </ul>
             </div>
@@ -62,39 +62,33 @@
         </div>
         <!-- /.container -->
     </nav>
-
     <!-- Page Content -->
     <div class="container">
-
-        <!-- Page Heading/Breadcrumbs -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Dashboard
-                    <small>Hello, Aryya</small>
-                </h1>
-                <ol class="breadcrumb">
-                    <li><a href="index.html">Home</a>
-                    </li>
-                    <li class="active">Dashboard</li>
-                </ol>
-            </div>
-        </div>
-        <!-- /.row -->
-
         <!-- Content Row -->
         <div class="row">
-            <!-- Sidebar Column -->
-            <div class="col-md-3">
-                <div class="list-group">
-                    <a href="dashboard.html" class="list-group-item">File List</a>
-                    <a href="trash.html" class="list-group-item">Trash</a>
-                    <a href="account.html" class="list-group-item">Account Information</a>
-                </div>
-            </div>
+
             <!-- Content Column -->
-            <div class="col-md-9">
-                <h2>Section Heading</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, et temporibus, facere perferendis veniam beatae non debitis, numquam blanditiis necessitatibus vel mollitia dolorum laudantium, voluptate dolores iure maxime ducimus fugit.</p>
+            <div class="col-md-12">
+				<hr/>
+
+                <h2>Login</h2>
+				<form class="form-horizontal">
+					<div class="form-group">
+						<div class="col-xs-4">
+							<input type="text" class="form-control" id="inputUsername" placeholder="Username">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-4">
+							<input type="password" class="form-control" id="inputPassword" placeholder="Password">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-3">
+							<input type="submit" value="Login" name="submit"> <a href="register.php">Register</a>
+						</div>
+					</div>
+				</form>
             </div>
         </div>
         <!-- /.row -->

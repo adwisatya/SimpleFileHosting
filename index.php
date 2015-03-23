@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="utf-8">
@@ -9,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Research Assistant File Hosting - Register</title>
+    <title>Research Assistant File Hosting - Index</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -51,10 +50,10 @@
                         <a href="about.html">About</a>
                     </li>
                     <li>
-                        <a href="dashboard.html">Dashboard</a>
+                        <a href="dashboard.php">Dashboard</a>
                     </li>
                     <li>
-                        <a href="login.html">Login/Register</a>
+                        <a href="login.php">Login/Register</a>
                     </li>
                 </ul>
             </div>
@@ -66,36 +65,42 @@
     <!-- Page Content -->
     <div class="container">
 
-        <!-- Content Row -->
+        <!-- Marketing Icons Section -->
         <div class="row">
-            <!-- Content Column -->
+            <div class="col-lg-12" align="center">
+                <h2 class="page-header">
+                    Welcome to Research Assistant File Hosting
+                </h2>
+            </div>
             <div class="col-md-12">
-                <h2>Please fill these boxes below</h2>
-				<form class="form-horizontal">
-					<div class="form-group">
-						<div class="col-xs-4">
-							<input type="text" class="form-control" id="inputUsername" placeholder="Username">
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-xs-4">
-							<input type="password" class="form-control" id="inputPassword" placeholder="Password">
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-xs-4">
-							<input type="email" class="form-control" id="inputEmail" placeholder="Email">
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-xs-3">
-							<input type="submit" value="Register" name="submit">
-						</div>
-					</div>
-				</form>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-check"></i>About this site</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+							Research Assistant File Hosting is free file hosting service for Research Assistant of Innovation Development Center. You can use this service freely, easily, and responsible for any risk and consequences may be applied after using this service.
+						</p>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- /.row -->
+       
+        <hr>
+
+        <!-- Call to Action Section -->
+        <div class="well">
+            <div class="row">
+                <div class="col-md-8">
+                    <p>
+						<i>
+							This service is still under developing phase. Please give attention due to data lost.
+						</i>
+					</p>
+                </div>
+            </div>
+        </div>
 
         <hr>
 
@@ -116,6 +121,13 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
 
 </body>
 

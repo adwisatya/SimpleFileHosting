@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Research Assistant File Hosting - Login</title>
+    <title>Research Assistant File Hosting - Register</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -51,10 +51,10 @@
                         <a href="about.html">About</a>
                     </li>
                     <li>
-                        <a href="dashboard.html">Dashboard</a>
+                        <a href="dashboard.php">Dashboard</a>
                     </li>
                     <li>
-                        <a href="login.html">Login/Register</a>
+                        <a href="login.php">Login/Register</a>
                     </li>
                 </ul>
             </div>
@@ -62,25 +62,29 @@
         </div>
         <!-- /.container -->
     </nav>
+
     <!-- Page Content -->
     <div class="container">
+
         <!-- Content Row -->
         <div class="row">
-
             <!-- Content Column -->
             <div class="col-md-12">
-				<hr/>
-
-                <h2>Login</h2>
-				<form class="form-horizontal">
+                <h2>Please fill these boxes below</h2>
+				<form class="form-horizontal" method="post" action="bin/mregister.php">
 					<div class="form-group">
 						<div class="col-xs-4">
-							<input type="text" class="form-control" id="inputUsername" placeholder="Username">
+							<input type="text" class="form-control" id="inputUsername" placeholder="Username" name="username">
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-xs-4">
-							<input type="password" class="form-control" id="inputPassword" placeholder="Password">
+							<input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-4">
+							<input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email">
 						</div>
 					</div>
 					<div class="form-group">
