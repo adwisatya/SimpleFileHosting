@@ -107,7 +107,7 @@
                 <h2>My Files</h2>
                 <?php
 					$fileHandler = new File();
-					$query = $fileHandler->getList($username);
+					$query = $fileHandler->getList($username,1);
 					print '<div class="row">';
 					print '<div class="col-md-3" style="border-style:solid;">File ID</div>';
 					print '<div class="col-md-3" style="border-style:solid;">File Name</div>';
@@ -116,14 +116,12 @@
 					print '</div>';
 
 					while($data = mysql_fetch_array($query)){
-						if($data['status']=="1"){
-							print '<div class="row">';
-							print '<div class="col-md-3">'.$data['fileid'].'</div>';
-							print '<div class="col-md-3">'.$data['filename'].'</div>';
-							print '<div class="col-md-3"><a href="files/'.$data['path'].'">Link</a></div>';
-							print '<div class="col-md-3"><a href="bin/file.php?delete='.$data['path'].'">Delete</a></div>';
-							print '</div>';
-						}
+						print '<div class="row">';
+						print '<div class="col-md-3">'.$data['fileid'].'</div>';
+						print '<div class="col-md-3">'.$data['filename'].'</div>';
+						print '<div class="col-md-3"><a href="files/'.$data['path'].'">Link</a></div>';
+						print '<div class="col-md-3"><a href="bin/file.php?delete='.$data['path'].'">Delete</a></div>';
+						print '</div>';
 					}
 				?>
             </div>

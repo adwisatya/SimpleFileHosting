@@ -2,15 +2,26 @@
 	require_once("main.php");
 	$registrator = new Register();
 	
-	$username = $_POST['username'];
-	$password =$_POST['password'];
-	$email = $_POST['email'];
-	
-
-	if(isset($_POST['submit'])){
-		//$registrator->addUser($username,$email,$password);
-		//$registrator->activateUser($username);
-		//$registrator->updateInfo($username,$password,$email);
+	switch ($_GET['id']){
+		case 1: 	
+				$username = 	$_POST['username'];
+				$password =		$_POST['password'];
+				$email	= 	$_POST['email'];
+				$registrator->addUser($username,$email,$password);
+				header("location: ../login.php");
+				break;
+		case 2: 
+				$username = 	$_POST['username'];
+				$registrator->activateUser($username);
+				break;
+		case 3:
+				$username = 	$_POST['username'];
+				$password =		$_POST['password'];
+				$email	= 	$_POST['email'];
+				$registrator->updateInfo($username,$password,$email);
+				break;
+		case 4:
+				$registrator->showUser();
+				break;	
 	}
-	$registrator->showUser();
 ?>

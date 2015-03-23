@@ -71,7 +71,7 @@
             <!-- Content Column -->
             <div class="col-md-12">
                 <h2>Please fill these boxes below</h2>
-				<form class="form-horizontal" method="post" action="bin/mregister.php">
+				<form class="form-horizontal" method="post" action="bin/mregister.php?id=1">
 					<div class="form-group">
 						<div class="col-xs-4">
 							<input type="text" class="form-control" id="inputUsername" placeholder="Username" name="username">
