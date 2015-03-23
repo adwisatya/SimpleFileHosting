@@ -72,15 +72,15 @@
 				<hr/>
 
                 <h2>Login</h2>
-				<form class="form-horizontal">
+				<form class="form-horizontal" method="post" action="bin/mlogin.php">
 					<div class="form-group">
 						<div class="col-xs-4">
-							<input type="text" class="form-control" id="inputUsername" placeholder="Username">
+							<input type="text" class="form-control" id="inputUsername" placeholder="Username" name="username">
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-xs-4">
-							<input type="password" class="form-control" id="inputPassword" placeholder="Password">
+							<input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password">
 						</div>
 					</div>
 					<div class="form-group">

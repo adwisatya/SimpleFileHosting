@@ -1,6 +1,7 @@
 <?php 
 	require_once("main.php");
 	$registrator = new Register();
+	
 	$username = $_POST['username'];
 	$password =$_POST['password'];
 	$email = $_POST['email'];

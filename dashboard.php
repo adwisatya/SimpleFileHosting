@@ -1,6 +1,12 @@
+<?php
+	session_start();
+	if($_SESSION['username'] == ""){
+		header("location: login.php");
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="utf-8">
@@ -70,7 +76,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Dashboard
-                    <small>Hello, Aryya</small>
+                    <small>Hello, <?php echo $_SESSION['username']; ?></small>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="index.php">Home</a>
