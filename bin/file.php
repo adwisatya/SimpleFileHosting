@@ -20,6 +20,10 @@ Class File{
 		$query = mysql_query("UPDATE file SET status='1' WHERE fileid='$id'");
 	}
 	function permanentDelete($id){
+		$query1 = mysql_query("SELECT path FROM file WHERE fileid='$id'");
+		while($tobedeleted = mysql_fetch_array($query1)){
+			unlink("../files/".$tobedeleted['path']);
+		}
 		$query = mysql_query("DELETE from file WHERE fileid = '$id'");
 	}
 	function checkOwner($id){
