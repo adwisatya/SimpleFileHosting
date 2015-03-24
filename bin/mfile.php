@@ -37,7 +37,7 @@
 	if(isset($_GET['pdelete'])){
 		$fileHandler->permanentDelete($_GET['pdelete']);
 		
-		//header("Location: ../trash.php");
+		header("Location: ../trash.php");
 	}
 	if(isset($_GET['recover'])){
 		$fileHandler->recover($_GET['recover']);

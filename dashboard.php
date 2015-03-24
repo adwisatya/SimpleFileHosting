@@ -65,7 +65,7 @@
                         <a href="dashboard.php">Dashboard</a>
                     </li>
                     <li>
-                        <a href="login.php">Login/Register</a>
+                        <a href="bin/logout.php">Logout</a>
                     </li>
                 </ul>
             </div>

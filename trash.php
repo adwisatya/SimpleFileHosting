@@ -65,7 +65,7 @@
                         <a href="dashboard.php">Dashboard</a>
                     </li>
                     <li>
-                        <a href="login.php">Login/Register</a>
+                        <a href="bin/logout.php">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -81,7 +81,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Dashboard
-                    <small>Hello, Aryya</small>
+                    <small>Hello, </small>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="index.php">Home</a>

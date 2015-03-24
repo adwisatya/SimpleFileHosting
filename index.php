@@ -52,8 +52,15 @@
                     <li>
                         <a href="dashboard.php">Dashboard</a>
                     </li>
+
                     <li>
-                        <a href="login.php">Login/Register</a>
+						<?php 
+							if($_SESSION['username'] != ""){
+								echo '<a href="bin/logout.php">Login/Register</a>';
+							}else{
+								echo '<a href="login.php">Login/Register</a>';
+							}
+						?>
                     </li>
                 </ul>
             </div>

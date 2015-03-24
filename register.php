@@ -1,3 +1,8 @@
+<?php 
+	if($_SESSION['username'] != ""){
+		header("location: dashboard.php");
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
