@@ -1,8 +1,12 @@
 <?php
 	session_start();
-	require_once("main.php");
+	if(file_exists("../connect/connect.php")){
+		include("../connect/connect.php");
+	}else{
+		include("connect/connect.php");
+	}	
+	include "file.php";
 	$fileHandler = new File();
-	
 	if(isset($_GET['id'])){
 		switch ($_GET['id']){
 			case 1: 
