@@ -9,6 +9,8 @@
 				$owner = mysql_fetch_array($fileHandler->checkOwner($_POST['fileid']))['username'];
 				if($owner == $_SESSION['username']){
 					$fileHandler->addToTrash($_POST['fileid']);
+					header("Location: ../dashboard.php");
+
 				}else{
 					print "tidak cocok";
 				}
