@@ -109,7 +109,7 @@
 					$fileHandler = new File();
 					$query = $fileHandler->getList($username,1);
 					print '<div class="row">';
-					print '<div class="col-md-3" style="border-style:solid;">File ID</div>';
+					//print '<div class="col-md-3" style="border-style:solid;">File ID</div>';
 					print '<div class="col-md-3" style="border-style:solid;">File Name</div>';
 					print '<div class="col-md-3" style="border-style:solid;">Direct Link</div>';
 					print '<div class="col-md-1" style="border-style:solid;">Action</div>';
@@ -117,10 +117,10 @@
 
 					while($data = mysql_fetch_array($query)){
 						print '<div class="row">';
-						print '<div class="col-md-3">'.$data['fileid'].'</div>';
+						//print '<div class="col-md-3">'.$data['fileid'].'</div>';
 						print '<div class="col-md-3">'.$data['filename'].'</div>';
 						print '<div class="col-md-3"><a href="files/'.$data['path'].'">Link</a></div>';
-						print '<div class="col-md-3"><a href="bin/file.php?delete='.$data['path'].'">Delete</a></div>';
+						print '<div class="col-md-3"><a href="bin/mfile.php?delete='.$data['fileid'].'">Delete</a></div>';
 						print '</div>';
 					}
 				?>

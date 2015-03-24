@@ -10,7 +10,7 @@ Class File{
 		return $query;
 	}
 	function addToTrash($id){
-		$query = mysql_query("UPDATE file SET status='0' WHERE fileid=$'id'");
+		$query = mysql_query("UPDATE file SET status='0' WHERE fileid='$id'");
 	}
 	function permanentDelete($id){
 		$query = mysql_query("DELETE from file WHERE fileid = '$id'");

@@ -7,7 +7,7 @@
 				$username = 	$_POST['username'];
 				$password =		$_POST['password'];
 				$email	= 	$_POST['email'];
-				$registrator->addUser($username,$email,$password);
+				$registrator->addUser($username,$password,$email);
 				header("location: ../login.php");
 				break;
 		case 2: 
