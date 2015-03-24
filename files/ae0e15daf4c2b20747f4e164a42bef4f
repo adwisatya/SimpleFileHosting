@@ -1,0 +1,87 @@
+       Output Diagnostic Fields:         T
+                      Kv Method: YSU       
+                     Minimum Kv:      0.10
+                     Projection: LATLON    
+   Diagnose sub-grid convection: GRELL     
+   Diagnose sub-grid stratiform:         T
+   Start date/time (YYJJJ HHMM): 14287 0000
+     End date/time (YYJJJ HHMM): 14287 0000
+          WRF output freq (min):        60
+                      Time zone:         6
+                 CAMx grid size:       100       100        12
+              CAMx grid spacing:    36.000    36.000
+CAMx Lat/Lon Origin (SW corner): -1072.000  -978.000
+
+ Opened CAMx LU file: 
+ camx.lu.test                                                                   
+                                                                                
+                                           
+ Opened CAMx 3D file: 
+ camx.3d.test                                                                   
+                                                                                
+                                           
+ Opened CAMx 2D file: 
+ camx.2d.test                                                                   
+                                                                                
+                                           
+ Opened CAMx Kv file (YSU): 
+ camx.kv.test.YSU                                                               
+                                                                                
+                                           
+ Opened CAMx cloud/rain file: 
+ camx.cr.test                                                                   
+                                                                                
+                                           
+CAMx layer:  1 contains WRF layers  1 to  1
+CAMx layer:  2 contains WRF layers  2 to  2
+CAMx layer:  3 contains WRF layers  3 to  3
+CAMx layer:  4 contains WRF layers  4 to  4
+CAMx layer:  5 contains WRF layers  5 to  5
+CAMx layer:  6 contains WRF layers  6 to  6
+CAMx layer:  7 contains WRF layers  7 to  8
+CAMx layer:  8 contains WRF layers  9 to 10
+CAMx layer:  9 contains WRF layers 11 to 12
+CAMx layer: 10 contains WRF layers 13 to 14
+CAMx layer: 11 contains WRF layers 15 to 16
+CAMx layer: 12 contains WRF layers 17 to 18
+ 
+ Opened input WRF file: 
+ /root/em_real/wrfout_d01_2014-10-14_00:00:00                                   
+                                                                                
+                                           
+ cdfid =            8
+
+Looking for CAMx date/time (YYJJJ HHMM):     14287 0000
+       Found WRF date/time (YYJJJ HHMM):     14287 0000
+
+ 
+ Grid parameters for the WRF domain
+       Projection:         1
+ Standard Lat/lon:    -6.211   106.844
+   True Latitudes:    -6.211     0.000
+ 
+          GRID ID:         1
+        PARENT ID:         0
+         NX,NY,NZ:        33        33        31
+               DX:     1.000
+Grid center (deg):    -6.211   106.844
+    SW x/y corner:   -16.500   -16.492
+    NE x/y corner:    16.499    16.508
+ 
+Interpolating WRF to CAMx LATLON
+ 
+ Grid parameters for the CAMx domain in LCP space
+         NX,NY,NZ:       100       100        12
+            DX,DY:    36.000    36.000
+ SW cell midpoint:       NaN       NaN
+ SE cell midpoint:       NaN       NaN
+ NE cell midpoint:128954.711**********
+ NW cell midpoint:-94755.906-16657.258
+        SW corner:       NaN       NaN
+        SE corner:       NaN       NaN
+        NE corner:128972.711**********
+        NW corner:-94773.906-16639.258
+ 
+ CAMx grid spans outside WRF data grid
+ Data interpolation is not possible
+ Program stopping

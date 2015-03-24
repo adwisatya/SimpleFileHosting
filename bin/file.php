@@ -9,6 +9,10 @@ Class File{
 		*/
 		return $query;
 	}
+	function addToDB($filename,$path,$username){
+		$sql = "INSERT INTO file (filename,path,status,username) VALUES('$filename','$path','1','$username')";
+		$query = mysql_query($sql);
+	}
 	function addToTrash($id){
 		$query = mysql_query("UPDATE file SET status='0' WHERE fileid='$id'");
 	}
