@@ -27,7 +27,7 @@
 			return $query;
 		}
 		function getData($username,$var){
-			$query = mysql_query("SELECT $var from user WHERE username='aryya'");
+			$query = mysql_query("SELECT $var from user WHERE username='$username'");
 			while($hasil = mysql_fetch_array($query)){
 				$returnVal = $hasil[$var];
 			}
