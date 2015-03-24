@@ -1,5 +1,5 @@
 <?php
-	//session_start();
+	session_start();
 	require_once("../connect/connect.php");
 	Class Login{
 		function cekLogin($username, $password){

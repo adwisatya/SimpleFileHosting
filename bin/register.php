@@ -1,9 +1,13 @@
 <?php
-	require_once("../connect/connect.php");
+	if(file_exists("../connect/connect.php")){
+		include("../connect/connect.php");
+	}else{
+		include("connect/connect.php");
+	}
 	Class Register{
 		/* OK */
 		function addUser($username, $password, $email){
-			$query = mysql_query("INSERT INTO user (username, password, email, active) VALUES('$username','".md5($password)."','$email','0')");
+			$query = mysql_query("INSERT INTO user (username, password, email, active) VALUES('$username','".md5($password)."','$email','1')");
 		}
 		/* OK */
 		function delUser($username){
@@ -21,6 +25,13 @@
 		function showUser(){
 			$query = mysql_query("SELECT * from user");
 			return $query;
+		}
+		function getData($username,$var){
+			$query = mysql_query("SELECT $var from user WHERE username='aryya'");
+			while($hasil = mysql_fetch_array($query)){
+				$returnVal = $hasil[$var];
+			}
+			return $returnVal;
 		}
 	}
 ?>

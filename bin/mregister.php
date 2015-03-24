@@ -1,5 +1,5 @@
 <?php 
-	require_once("main.php");
+	require_once("register.php");
 	$registrator = new Register();
 	
 	switch ($_GET['id']){
@@ -19,6 +19,8 @@
 				$password =		$_POST['password'];
 				$email	= 	$_POST['email'];
 				$registrator->updateInfo($username,$password,$email);
+				header("location: ../account.php");
+
 				break;
 		case 4:
 				$registrator->showUser();

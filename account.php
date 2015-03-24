@@ -1,3 +1,17 @@
+<?php
+	session_start();
+	require_once("connect/connect.php");
+	require_once("bin/file.php");
+	require_once("bin/register.php");
+	
+	
+	if($_SESSION['username'] == ""){
+		header("location: login.php");
+	}else{
+		$username = $_SESSION['username'];
+		$Registrator = new Register();
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,7 +84,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Dashboard
-                    <small>Hello, Aryya</small>
+                    <small>Hello, <?php echo $_SESSION['username']; ?></small>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="index.php">Home</a>
@@ -94,8 +108,13 @@
             </div>
             <!-- Content Column -->
             <div class="col-md-9">
-                <h2>Section Heading</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, et temporibus, facere perferendis veniam beatae non debitis, numquam blanditiis necessitatibus vel mollitia dolorum laudantium, voluptate dolores iure maxime ducimus fugit.</p>
+                <h2>Change Account Information</h2>
+                <form method="post" action="bin/mregister.php?id=3">
+					<label>Username: <?php echo $_SESSION['username']; ?></label><input type="hidden" name="username" value="<?php echo $_SESSION['username'];?>"><br/>
+					<label>Password:</label><input type="text" name="password" value="<?php print $Registrator->getData($_SESSION['username'],"password"); ?>"></br>
+					<label>Email:</label><input type="text" name="email" value=<?php echo $Registrator->getData($_SESSION['username'],"email"); ?>></br>
+					<input type="submit" name="submit" value="Update">
+				</form>
             </div>
         </div>
         <!-- /.row -->
