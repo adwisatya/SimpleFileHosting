@@ -7,6 +7,7 @@
 	}	
 	include "file.php";
 	$fileHandler = new File();
+	/*
 	if(isset($_GET['id'])){
 		switch ($_GET['id']){
 			case 1: 
@@ -28,6 +29,7 @@
 			
 		}
 	}
+	*/
 	if(isset($_GET['delete'])){
 		$fileHandler->addToTrash($_GET['delete']);
 		header("Location: ../dashboard.php");
