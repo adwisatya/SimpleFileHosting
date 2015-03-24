@@ -26,4 +26,12 @@
 		$fileHandler->addToTrash($_GET['delete']);
 		header("Location: ../dashboard.php");
 	}
+	if(isset($_GET['pdelete'])){
+		$fileHandler->permanentDelete($_GET['pdelete']);
+		header("Location: ../trash.php");
+	}
+	if(isset($_GET['recover'])){
+		$fileHandler->recover($_GET['recover']);
+		header("Location: ../trash.php");
+	}
 ?>

@@ -87,7 +87,8 @@
             <div class="col-md-3">
                 <div class="list-group">
                     <a href="dashboard.php" class="list-group-item">File List</a>
-                    <a href="trash.php" class="list-group-item">Trash</a>
+					<a href="upload.php" class="list-group-item">Upload</a>
+					<a href="trash.php" class="list-group-item">Trash</a>
                     <a href="account.php" class="list-group-item">Account Information</a>
                 </div>
             </div>

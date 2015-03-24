@@ -98,8 +98,9 @@
             <div class="col-md-3">
                 <div class="list-group">
                     <a href="dashboard.php" class="list-group-item">File List</a>
-                    <a href="trash.html" class="list-group-item">Trash</a>
-                    <a href="account.html" class="list-group-item">Account Information</a>
+					<a href="upload.php" class="list-group-item">Upload</a>
+					<a href="trash.php" class="list-group-item">Trash</a>
+                    <a href="account.php" class="list-group-item">Account Information</a>
                 </div>
             </div>
             <!-- Content Column -->
@@ -111,14 +112,16 @@
 					print '<div class="row">';
 					print '<div class="col-md-3" style="border-style:solid;">File ID</div>';
 					print '<div class="col-md-3" style="border-style:solid;">File Name</div>';
-					print '<div class="col-md-1" style="border-style:solid;">Action</div>';
+					print '<div class="col-md-3" style="border-style:solid;">Action</div>';
 					print '</div>';
 
 					while($data = mysql_fetch_array($query)){
 						print '<div class="row">';
 						print '<div class="col-md-3">'.$data['fileid'].'</div>';
 						print '<div class="col-md-3">'.$data['filename'].'</div>';
-						print '<div class="col-md-3"><a href="bin/file.php?delete='.$data['path'].'">Recover</a></div>';
+						print '<div class="col-md-1"><a href="bin/mfile.php?recover='.$data['fileid'].'">Recover</a></div>';
+						print '<div class="col-md-1"><a href="bin/mfile.php?pdelete='.$data['fileid'].'">Delete</a></div>';
+
 						print '</div>';
 					}
 				?>
