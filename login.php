@@ -62,7 +62,7 @@
                         <a href="dashboard.php">Dashboard</a>
                     </li>
                     <li>
-                        <a href="login.php">Login/Register</a>
+                        <a href="login.php">Login</a>
                     </li>
                 </ul>
             </div>

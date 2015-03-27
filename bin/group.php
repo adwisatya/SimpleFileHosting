@@ -23,7 +23,7 @@ Class Group{
 			unlink("../files/".$tobedeleted['path']);
 		}
 		*/
-		$query = mysql_query("DELETE from group WHERE gid = '$id'");
+		$query = mysql_query("DELETE FROM `group` WHERE `gid` = $id");
 	}
 	/*
 	function addToTrash($id){

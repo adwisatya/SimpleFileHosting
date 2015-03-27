@@ -120,21 +120,43 @@
 						print '<div class="row">';
 						print '<div class="col-md-3" style="border-style:solid;">Group ID</div>';
 						print '<div class="col-md-3" style="border-style:solid;">Nama</div>';
+						print '<div class="col-md-3" style="border-style:solid;">Action</div>';
+
 						print '</div>';
 
 						while($data = mysql_fetch_array($query)){
 							print '<div class="row">';
 							print '<div class="col-md-3">'.$data['gid'].'</div>';
 							print '<div class="col-md-3">'.$data['nama'].'</div>';
+							print '<div class="col-md-3">
+								<a href="bin/mgroup.php?cid=2&id='.$data['gid'].'">Delete</a> | 
+								<a href="admin.php?act=edit&id='.$data['gid'].'">Edit</a>
+							</div>';
+
 							print '</div>';
 						}
 					}else{
 						switch ($_GET['act']){
 							case 'delete': 
+								echo'
+									<form class="form-horizontal" method="post" action="bin/mgroup.php?cid=2">
+										<div class="form-group">
+											<div class="col-xs-4">
+												<input type="text" class="form-control" id="inputNama" placeholder="Nama" name="nama">
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-xs-3">
+												<input type="submit" value="Add Group" name="submit">
+											</div>
+										</div>
+										
+									</form>
+								';
 								break;
 							case 'add':
 								echo'
-									<form class="form-horizontal" method="post" action="bin/mgroup.php?id=1">
+									<form class="form-horizontal" method="post" action="bin/mgroup.php?cid=1">
 										<div class="form-group">
 											<div class="col-xs-4">
 												<input type="text" class="form-control" id="inputNama" placeholder="Nama" name="nama">

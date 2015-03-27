@@ -59,9 +59,9 @@
 						<?php 
 							if(isset($_SESSION['username'])){
 								if($_SESSION['username']!= ""){
-									echo '<a href="bin/logout.php">Login/Register</a>';
+									echo '<a href="bin/logout.php">Logout</a>';
 								}else{
-									echo '<a href="login.php">Login/Register</a>';
+									echo '<a href="login.php">Login</a>';
 								}
 							}else{
 								echo '<a href="login.php">Login</a>';
