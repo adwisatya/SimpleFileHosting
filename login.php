@@ -1,6 +1,8 @@
 <?php 
-	if($_SESSION['username'] != ""){
-		header("location: dashboard.php");
+	if(isset($_SESSION['username'])){
+		if($_SESSION['username']!= ""){
+			header("location: dashboard.php");
+		}
 	}
 ?>
 

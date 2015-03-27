@@ -1,6 +1,16 @@
-<?php 
+<?php
 	session_start();
-?><!DOCTYPE html>
+	require_once("connect/connect.php");
+	require_once("bin/group.php");
+
+	if($_SESSION['username'] == ""){
+		header("location: login.php");
+	}else{
+		$username = $_SESSION['username'];
+	}
+?>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -10,7 +20,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Research Assistant File Hosting - Index</title>
+    <title>Research Assistant File Hosting - Dashboard</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -54,20 +64,8 @@
                     <li>
                         <a href="dashboard.php">Dashboard</a>
                     </li>
-
                     <li>
-						<?php 
-							if(isset($_SESSION['username'])){
-								if($_SESSION['username']!= ""){
-									echo '<a href="bin/logout.php">Login/Register</a>';
-								}else{
-									echo '<a href="login.php">Login/Register</a>';
-								}
-							}else{
-								echo '<a href="login.php">Login</a>';
-								
-							}
-						?>
+                        <a href="bin/logout.php">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -79,42 +77,43 @@
     <!-- Page Content -->
     <div class="container">
 
-        <!-- Marketing Icons Section -->
+        <!-- Page Heading/Breadcrumbs -->
         <div class="row">
-            <div class="col-lg-12" align="center">
-                <h2 class="page-header">
-                    Welcome to Research Assistant File Hosting
-                </h2>
-            </div>
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-check"></i>About this site</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>
-							Research Assistant File Hosting is free file hosting service for Research Assistant of Innovation Development Center. You can use this service freely, easily, and responsible for any risk and consequences may be applied after using this service.
-						</p>
-                    </div>
-                </div>
+            <div class="col-lg-12">
+                <h1 class="page-header">Dashboard
+                    <small>Hello, <?php echo $_SESSION['username']; ?></small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="index.php">Home</a>
+                    </li>
+                    <li class="active">Dashboard</li>
+                </ol>
             </div>
         </div>
         <!-- /.row -->
-       
-        <hr>
 
-        <!-- Call to Action Section -->
-        <div class="well">
-            <div class="row">
-                <div class="col-md-8">
-                    <p>
-						<i>
-							This service is still under developing phase. Please give attention due to data lost.
-						</i>
-					</p>
+        <!-- Content Row -->
+        <div class="row">
+            <!-- Sidebar Column -->
+            <div class="col-md-3" >
+                <div class="list-group">
+                    <a href="admin.php" class="list-group-item">Group List</a>
+					<a href="GroupManagement.php" class="list-group-item">Group Management</a>
+					<a href="UserList.php" class="list-group-item">UserList</a>
+                    <a href="UserManagement.php" class="list-group-item">User Management</a>
+                    <a href="account.php" class="list-group-item">Account Information</a>
+
                 </div>
             </div>
+            <!-- Content Column -->
+            <div class="col-md-9" id="content">
+                <h2>Group Management</h2>
+                <?php
+
+				?>
+            </div>
         </div>
+        <!-- /.row -->
 
         <hr>
 
@@ -136,12 +135,8 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
-    <!-- Script to Activate the Carousel -->
-    <script>
-    $('.carousel').carousel({
-        interval: 5000 //changes the speed
-    })
-    </script>
+	<!-- Manipulator js -->
+    <script src="js/manipulator.js"></script>
 
 </body>
 
