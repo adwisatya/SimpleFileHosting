@@ -1,1 +1,3 @@
-to do list
+(+) list user dalam grup
+(+) delete user dari grup
+(+) add user ke grup

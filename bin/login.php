@@ -9,6 +9,7 @@
 			print md5($password);
 			if(md5($password) == $data['password']){
 				$_SESSION['username'] = $username;
+				$_SESSION['gid'] = $data['gid'];
 				if($data['gid']=="1"){
 					header("location: ../admin.php");
 				}else{

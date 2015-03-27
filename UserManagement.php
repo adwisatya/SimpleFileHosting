@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	require_once("connect/connect.php");
-	require_once("bin/group.php");
+	require_once("bin/register.php");
 
 	if($_SESSION['username'] == ""){
 		header("location: login.php");
@@ -108,8 +108,90 @@
             <!-- Content Column -->
             <div class="col-md-9" id="content">
                 <h2>Group Management</h2>
-                <?php
+				<a href="UserManagement.php?act=add">Add</a> | 
+				<a href="UserManagement.php?act=delete">Delete</a> |
+				<a href="UserManagement.php?act=edit">Edit</a>
 
+				<hr/>
+                <?php
+					if(!isset($_GET['act'])){
+						$userHandler = new Register();
+						$query = $userHandler->showUser();
+						print '<div class="row">';
+						print '<div class="col-md-3" style="border-style:solid;">Username</div>';
+						print '<div class="col-md-3" style="border-style:solid;">Email</div>';
+						print '<div class="col-md-3" style="border-style:solid;">Group</div>';
+						print '<div class="col-md-3" style="border-style:solid;">Action</div>';
+
+						print '</div>';
+
+						while($data = mysql_fetch_array($query)){
+							print '<div class="row">';
+							print '<div class="col-md-3">'.$data['username'].'</div>';
+							print '<div class="col-md-3">'.$data['email'].'</div>';
+							print '<div class="col-md-3">'.$data['gid'].'</div>';
+
+							print '<div class="col-md-3">
+								<a href="bin/mregister.php?cid=5&u='.$data['username'].'">Delete</a> | 
+								<a href="UserManagement.php?act=edit&id='.$data['username'].'">Edit</a>
+							</div>';
+
+							print '</div>';
+						}
+					}else{
+						switch ($_GET['act']){
+							case 'delete': 
+								echo'
+									<form class="form-horizontal" method="post" action="bin/mgroup.php?cid=2">
+										<div class="form-group">
+											<div class="col-xs-4">
+												<input type="text" class="form-control" id="inputNama" placeholder="Nama" name="nama">
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-xs-3">
+												<input type="submit" value="Add Group" name="submit">
+											</div>
+										</div>
+										
+									</form>
+								';
+								break;
+							case 'add':
+								echo'
+									<form class="form-horizontal" method="post" action="bin/mgroup.php?cid=1">
+										<div class="form-group">
+											<div class="col-xs-4">
+												<input type="text" class="form-control" id="inputNama" placeholder="Nama" name="nama">
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-xs-3">
+												<input type="submit" value="Add Group" name="submit">
+											</div>
+										</div>
+									</form>
+								';
+								break;
+							case 'edit':
+								$gid = $_GET['id'];
+								echo '
+									<form class="form-horizontal" method="post" action="bin/mgroup.php?cid=3">
+										<div class="form-group">
+											<div class="col-xs-4">
+												<input type="hidden" class="form-control" name="gid" value='.$gid.'>
+												<input type="text" class="form-control" id="inputNama" placeholder="Nama" name="nama">
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-xs-3">
+												<input type="submit" value="Edit Group" name="submit">
+											</div>
+										</div>
+									</form>';
+								break;
+						}
+					}
 				?>
             </div>
         </div>
