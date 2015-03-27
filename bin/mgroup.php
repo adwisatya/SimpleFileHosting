@@ -15,6 +15,12 @@
 				/* tambahkan itnegrity constrain */
 				header("location: ../admin.php");
 				break;
+			case 3:
+				$gid = $_POST['gid'];
+				$nama = $_POST['nama'];
+				$groupHandler->updateInfo($gid,$nama);
+				header("location: ../admin.php");
+				break;
 		}
 	}
 ?>

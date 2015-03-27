@@ -13,8 +13,8 @@ Class Group{
 		$sql = "INSERT INTO `group` (`gid`, `nama`, `folder`) VALUES (NULL, '$nama', '$folder'); ";
 		$query = mysql_query($sql);
 	}
-	function updateInfo($nama){
-		$query = mysql_query("UPDATE group SET nama='$nama'");
+	function updateInfo($gid, $nama){
+		$query = mysql_query("UPDATE `group` SET `nama` = '$nama' WHERE `gid` = $gid;");
 	}
 	function permanentDelete($id){
 		/*

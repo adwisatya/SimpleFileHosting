@@ -170,6 +170,23 @@
 									</form>
 								';
 								break;
+							case 'edit':
+								$gid = $_GET['id'];
+								echo '
+									<form class="form-horizontal" method="post" action="bin/mgroup.php?cid=3">
+										<div class="form-group">
+											<div class="col-xs-4">
+												<input type="hidden" class="form-control" name="gid" value='.$gid.'>
+												<input type="text" class="form-control" id="inputNama" placeholder="Nama" name="nama">
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-xs-3">
+												<input type="submit" value="Edit Group" name="submit">
+											</div>
+										</div>
+									</form>';
+								break;
 						}
 					}
 				?>
