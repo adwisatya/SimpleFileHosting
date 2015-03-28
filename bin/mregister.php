@@ -9,7 +9,7 @@
 				$email	= 	$_POST['email'];
 				$gid	=	$_POST['gid'];
 				$registrator->addUser($username,$password,$email,$gid);
-				header("location: ../login.php");
+				header("location: ../UserManagement.php?act=add");
 				break;
 		case 2: /* activate */
 				$username = 	$_POST['username'];
@@ -21,7 +21,7 @@
 				$email	= 	$_POST['email'];
 				$gid = $_POST['gid'];
 				$registrator->updateInfo($username,$password,$email,$gid);
-				header("location: ../account.php");
+				header("location: ../UserManagement.php?act=edit&u=$username");
 				break;
 		case 4:
 				$registrator->showUser();

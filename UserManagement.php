@@ -160,19 +160,40 @@
 								';
 								break;
 							case 'add':
-								echo'
-									<form class="form-horizontal" method="post" action="bin/mgroup.php?cid=1">
-										<div class="form-group">
-											<div class="col-xs-4">
-												<input type="text" class="form-control" id="inputNama" placeholder="Nama" name="nama">
-											</div>
+								$query = $groupHandler->getList();
+								echo '
+								<form class="form-horizontal" method="post" action="bin/mregister.php?cid=1">
+									<div class="form-group">
+										<div class="col-xs-4">
+											<input type="text" class="form-control" id="inputUsername" placeholder="Username" name="username">
 										</div>
-										<div class="form-group">
-											<div class="col-xs-3">
-												<input type="submit" value="Add Group" name="submit">
-											</div>
+									</div>
+									<div class="form-group">
+										<div class="col-xs-4">
+											<input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password">
 										</div>
-									</form>
+									</div>
+									<div class="form-group">
+										<div class="col-xs-4">
+											<input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-xs-4">
+											Group: <select name="gid">
+									';
+									while($data = mysql_fetch_array($query)){
+										print '<option value="'.$data['gid'].'">'.$data['nama'].'</option>"';
+									}
+									echo '</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-xs-3">
+											<input type="submit" value="Register" name="submit">
+										</div>
+									</div>
+								</form>
 								';
 								break;
 							case 'edit':
