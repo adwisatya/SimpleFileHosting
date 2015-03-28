@@ -180,8 +180,7 @@
 								$password = $userHandler->getData($username,"password");
 								$gid = $userHandler->getData($username,"gid");
 								$email = $userHandler->getData($username,"email");
-								$listGroup = $groupHandler->getList();
-								print_r(mysql_fetch_array($listGroup));
+								$query = $groupHandler->getList();
 								echo '
 								<form class="form-horizontal" method="post" action="bin/mregister.php?cid=3">
 									<div class="form-group">
@@ -203,11 +202,10 @@
 										<div class="col-xs-4">
 											Group: <select name="gid">
 									';
-									while($l = mysql_fetch_array($listGroup)){
-										print $data['gid']." ".$data['nama']." ".$data['folder']."<br/>";
+									while($data = mysql_fetch_array($query)){
+										print '<option value="'.$data['gid'].'">'.$data['nama'].'</option>"';
 									}
-									echo '		
-											</select>
+									echo '</select>
 										</div>
 									</div>
 									<div class="form-group">

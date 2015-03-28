@@ -2,11 +2,11 @@
 Class Group{
 	function getList(){
 		$query = mysql_query("SELECT * FROM `group`");
-		/*
-		while($data = mysql_fetch_array($query)){
-			print $data['fileid']." ".$data['filename']." ".$data['path']."<br/>";
-		}
-		*/
+		
+		// while($data = mysql_fetch_array($query)){
+			// print $data['gid']." ".$data['nama']." ".$data['folder']."<br/>";
+		// }
+		
 		return $query;
 	}
 	function addToDB($nama, $folder){
