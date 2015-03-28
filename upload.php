@@ -107,6 +107,7 @@
             <div class="col-md-9" id="content">
                 <h2>Upload Files</h2>
 				<form method="post" action="bin/upload.php" enctype="multipart/form-data">
+					<input type="hidden"  name="gid" value="<?php echo $_SESSION['gid']; ?>">
 					<input type="hidden"  name="username" value="<?php echo $_SESSION['username']; ?>">
 					<input type="file" id="file" name="userfile" multiple="multiple">
 					<input type="submit" name="submit" value="Upload">

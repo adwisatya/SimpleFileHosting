@@ -108,7 +108,7 @@
                 <h2>My Files</h2>
                 <?php
 					$fileHandler = new File();
-					$query = $fileHandler->getList($username,1);
+					$query = $fileHandler->getList($_SESSION['gid'],1);
 					print '<div class="row">';
 					//print '<div class="col-md-3" style="border-style:solid;">File ID</div>';
 					print '<div class="col-md-3" style="border-style:solid;">File Name</div>';

@@ -1,7 +1,7 @@
 <?php
 Class File{
-	function getList($username,$status){
-		$query = mysql_query("SELECT * from file WHERE username='$username' AND status='$status'");
+	function getList($gid,$status){
+		$query = mysql_query("SELECT * from file WHERE gid='$gid' AND status='$status'");
 		/*
 		while($data = mysql_fetch_array($query)){
 			print $data['fileid']." ".$data['filename']." ".$data['path']."<br/>";
@@ -9,8 +9,8 @@ Class File{
 		*/
 		return $query;
 	}
-	function addToDB($filename,$path,$username){
-		$sql = "INSERT INTO file (filename,path,status,username) VALUES('$filename','$path','1','$username')";
+	function addToDB($filename,$path,$username,$gid){
+		$sql = "INSERT INTO file (filename,path,status,username,gid) VALUES('$filename','$path','1','$username','$gid')";
 		$query = mysql_query($sql);
 	}
 	function addToTrash($id){
