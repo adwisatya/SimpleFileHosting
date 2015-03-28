@@ -2,6 +2,7 @@
 	session_start();
 	require_once("connect/connect.php");
 	require_once("bin/register.php");
+	require_once("bin/group.php");
 
 	if($_SESSION['username'] == ""){
 		header("location: login.php");
@@ -107,15 +108,16 @@
             </div>
             <!-- Content Column -->
             <div class="col-md-9" id="content">
-                <h2>Group Management</h2>
+                <h2>User Management</h2>
 				<a href="UserManagement.php?act=add">Add</a> | 
 				<a href="UserManagement.php?act=delete">Delete</a> |
 				<a href="UserManagement.php?act=edit">Edit</a>
 
 				<hr/>
                 <?php
+					$userHandler = new Register();
+					$groupHandler = new Group();
 					if(!isset($_GET['act'])){
-						$userHandler = new Register();
 						$query = $userHandler->showUser();
 						print '<div class="row">';
 						print '<div class="col-md-3" style="border-style:solid;">Username</div>';
@@ -133,7 +135,7 @@
 
 							print '<div class="col-md-3">
 								<a href="bin/mregister.php?cid=5&u='.$data['username'].'">Delete</a> | 
-								<a href="UserManagement.php?act=edit&id='.$data['username'].'">Edit</a>
+								<a href="UserManagement.php?act=edit&u='.$data['username'].'">Edit</a>
 							</div>';
 
 							print '</div>';
@@ -174,21 +176,47 @@
 								';
 								break;
 							case 'edit':
-								$gid = $_GET['id'];
+								$username = $_GET['u'];
+								$password = $userHandler->getData($username,"password");
+								$gid = $userHandler->getData($username,"gid");
+								$email = $userHandler->getData($username,"email");
+								$listGroup = $groupHandler->getList();
+								print_r(mysql_fetch_array($listGroup));
 								echo '
-									<form class="form-horizontal" method="post" action="bin/mgroup.php?cid=3">
-										<div class="form-group">
-											<div class="col-xs-4">
-												<input type="hidden" class="form-control" name="gid" value='.$gid.'>
-												<input type="text" class="form-control" id="inputNama" placeholder="Nama" name="nama">
-											</div>
+								<form class="form-horizontal" method="post" action="bin/mregister.php?cid=3">
+									<div class="form-group">
+										<div class="col-xs-4">
+											<input type="text" class="form-control" id="inputUsername" placeholder="Username" name="username" value="'.$username.'">
 										</div>
-										<div class="form-group">
-											<div class="col-xs-3">
-												<input type="submit" value="Edit Group" name="submit">
-											</div>
+									</div>
+									<div class="form-group">
+										<div class="col-xs-4">
+											<input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password" value="'.$password.'">
 										</div>
-									</form>';
+									</div>
+									<div class="form-group">
+										<div class="col-xs-4">
+											<input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" value="'.$email.'">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-xs-4">
+											Group: <select name="gid">
+									';
+									while($l = mysql_fetch_array($listGroup)){
+										print $data['gid']." ".$data['nama']." ".$data['folder']."<br/>";
+									}
+									echo '		
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-xs-3">
+											<input type="submit" value="Register" name="submit">
+										</div>
+									</div>
+								</form>
+								';
 								break;
 						}
 					}

@@ -21,6 +21,9 @@
 				$groupHandler->updateInfo($gid,$nama);
 				header("location: ../admin.php");
 				break;
+			case 4:
+				print_r(mysql_fetch_array($groupHandler->getList()));
+				break;
 		}
 	}
 ?>

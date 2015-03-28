@@ -1,7 +1,7 @@
 <?php
 Class Group{
 	function getList(){
-		$query = mysql_query("SELECT gid,nama FROM `group`");
+		$query = mysql_query("SELECT * FROM `group`");
 		/*
 		while($data = mysql_fetch_array($query)){
 			print $data['fileid']." ".$data['filename']." ".$data['path']."<br/>";
