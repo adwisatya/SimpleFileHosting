@@ -25,8 +25,15 @@ Class Group{
 	function permanentDelete($id){
 		$query1 = mysql_query("SELECT `folder` FROM `group` WHERE `gid`=$id");
 		$data = mysql_fetch_array($query1);
-		unlink("../files/".$data['folder']."/");
-		//$query = mysql_query("DELETE FROM `group` WHERE `gid` = $id");
+		$dir = "../files/".$data['folder']."/";
+		$objects = scandir($dir);
+		foreach ($objects as $object) {
+			if ($object != "." && $object != "..") {
+				if (filetype($dir."/".$object) == "dir") rrmdir($dir."/".$object); else unlink($dir."/".$object);
+			} 
+		}
+		rmdir("../files/".$data['folder']."/");
+		$query = mysql_query("DELETE FROM `group` WHERE `gid` = $id");
 	}
 	/*
 	function addToTrash($id){
