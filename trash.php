@@ -100,6 +100,11 @@
                     <a href="dashboard.php" class="list-group-item">File List</a>
 					<a href="upload.php" class="list-group-item">Upload</a>
 					<a href="trash.php" class="list-group-item">Trash</a>
+					<?php 
+						if($_SESSION['username']=="aryya"){
+							echo '<a href="admin.php" class="list-group-item">Admin Board</a>';
+						}
+					?>
                     <!-- <a href="account.php" class="list-group-item">Account Information</a> -->
                 </div>
             </div>
