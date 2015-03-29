@@ -34,6 +34,7 @@ Class Group{
 		}
 		rmdir("../files/".$data['folder']."/");
 		$query = mysql_query("DELETE FROM `group` WHERE `gid` = $id");
+		$query = mysql_query("UPDATE `user` SET `gid` = '' WHERE `gid`=$id");
 	}
 	/*
 	function addToTrash($id){
