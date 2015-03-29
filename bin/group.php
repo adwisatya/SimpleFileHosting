@@ -11,6 +11,7 @@ Class Group{
 	}
 	function addToDB($nama, $folder){
 		$sql = "INSERT INTO `group` (`gid`, `nama`, `folder`) VALUES (NULL, '$nama', '$folder'); ";
+		mkdir("../files/".$folder,0777);
 		$query = mysql_query($sql);
 	}
 	function updateInfo($gid, $nama){

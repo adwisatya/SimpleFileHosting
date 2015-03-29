@@ -2,6 +2,7 @@
 	session_start();
 	require_once("connect/connect.php");
 	require_once("bin/file.php");
+	require_once("bin/group.php");
 
 	if($_SESSION['username'] == ""){
 		header("location: login.php");
@@ -116,6 +117,7 @@
                 <h2>My Files</h2>
                 <?php
 					$fileHandler = new File();
+					$groupHandler = new Group();
 					$query = $fileHandler->getList($_SESSION['gid'],1);
 					print '<div class="row">';
 					//print '<div class="col-md-3" style="border-style:solid;">File ID</div>';

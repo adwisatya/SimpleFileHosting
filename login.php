@@ -93,7 +93,7 @@
 					</div>
 					<div class="form-group">
 						<div class="col-xs-3">
-							<input type="submit" value="Login" name="submit"> <a href="register.php">Register</a>
+							<input type="submit" value="Login" name="submit"> <!--<a href="register.php">Register</a> -->
 						</div>
 					</div>
 				</form>
