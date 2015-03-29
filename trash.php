@@ -100,7 +100,7 @@
                     <a href="dashboard.php" class="list-group-item">File List</a>
 					<a href="upload.php" class="list-group-item">Upload</a>
 					<a href="trash.php" class="list-group-item">Trash</a>
-                    <a href="account.php" class="list-group-item">Account Information</a>
+                    <!-- <a href="account.php" class="list-group-item">Account Information</a> -->
                 </div>
             </div>
             <!-- Content Column -->
@@ -108,7 +108,7 @@
                 <h2>My Trash</h2>
                 <?php
 					$fileHandler = new File();
-					$query = $fileHandler->getList($username,0);
+					$query = $fileHandler->getList($_SESSION['gid'],0);
 					print '<div class="row">';
 					print '<div class="col-md-3" style="border-style:solid;">File ID</div>';
 					print '<div class="col-md-3" style="border-style:solid;">File Name</div>';
