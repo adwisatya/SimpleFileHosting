@@ -93,6 +93,9 @@
         <!-- /.row -->
 
         <!-- Content Row -->
+		<?php
+			if($_SESSION['gid']!=""){
+		?>
         <div class="row">
             <!-- Sidebar Column -->
             <div class="col-md-3">
@@ -132,6 +135,11 @@
 				?>
             </div>
         </div>
+		<?php 
+			}else{
+				echo "<script>alert('Anda belum tergabung dalam grup manapun, Anda tidak dapat melakukan managemen file');</script>";
+			}
+		?>
         <!-- /.row -->
 
         <hr>
