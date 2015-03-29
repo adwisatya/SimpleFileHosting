@@ -13,7 +13,7 @@
 				$id = $_GET['id'];
 				$groupHandler->permanentDelete($id);
 				/* tambahkan itnegrity constrain */
-				header("location: ../admin.php");
+				//header("location: ../admin.php");
 				break;
 			case 3:
 				$gid = $_POST['gid'];

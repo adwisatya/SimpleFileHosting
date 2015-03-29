@@ -16,14 +16,17 @@ Class Group{
 	function updateInfo($gid, $nama){
 		$query = mysql_query("UPDATE `group` SET `nama` = '$nama' WHERE `gid` = $gid;");
 	}
+
+	function getFolder($id){
+		$query1 = mysql_query("SELECT `folder` FROM `group` WHERE `gid`=$id");
+		$data = mysql_fetch_array($query1);
+		return $data['folder'];
+	}
 	function permanentDelete($id){
-		/*
-		$query1 = mysql_query("SELECT g FROM file WHERE fileid='$id'");
-		while($tobedeleted = mysql_fetch_array($query1)){
-			unlink("../files/".$tobedeleted['path']);
-		}
-		*/
-		$query = mysql_query("DELETE FROM `group` WHERE `gid` = $id");
+		$query1 = mysql_query("SELECT `folder` FROM `group` WHERE `gid`=$id");
+		$data = mysql_fetch_array($query1);
+		unlink("../files/".$data['folder']."/");
+		//$query = mysql_query("DELETE FROM `group` WHERE `gid` = $id");
 	}
 	/*
 	function addToTrash($id){

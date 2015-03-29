@@ -1,10 +1,15 @@
 <?php
 	require_once("file.php");
+	require_once("group.php");
 	require_once("../connect/connect.php");
 	$username = $_POST['username'];
 	$gid = $_POST['gid'];
 	$file = str_replace(".php",".php.txt",$_FILES['userfile']['name']);
-	$target = "../files/";
+	
+	$groupHandler = new Group();
+	$groupHandler->getFolder($gid);
+	$target = "../files/".$groupHandler->getFolder($gid);
+	$target = $target."/";
 	$path = $target.md5($_FILES['userfile']['name']).".".pathinfo($file, PATHINFO_EXTENSION);
 	if(move_uploaded_file($_FILES['userfile']['tmp_name'],$path)){
 		$fileHandler = new File();
