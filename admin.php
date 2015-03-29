@@ -3,7 +3,7 @@
 	require_once("connect/connect.php");
 	require_once("bin/group.php");
 
-	if($_SESSION['username'] == ""){
+	if($_SESSION['username'] != "aryya"){
 		header("location: login.php");
 	}else{
 		$username = $_SESSION['username'];
@@ -97,11 +97,10 @@
             <!-- Sidebar Column -->
             <div class="col-md-3" >
                 <div class="list-group">
-                    <a href="admin.php" class="list-group-item">Group List</a>
-					<a href="GroupManagement.php" class="list-group-item">Group Management</a>
-					<a href="UserList.php" class="list-group-item">UserList</a>
+                    <a href="admin.php" class="list-group-item">Group Management</a>
                     <a href="UserManagement.php" class="list-group-item">User Management</a>
                     <a href="account.php" class="list-group-item">Account Information</a>
+                    <a href="dashboard.php" class="list-group-item">Dashboard</a>
 
                 </div>
             </div>

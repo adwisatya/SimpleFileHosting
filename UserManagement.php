@@ -98,11 +98,10 @@
             <!-- Sidebar Column -->
             <div class="col-md-3" >
                 <div class="list-group">
-                    <a href="admin.php" class="list-group-item">Group List</a>
-					<a href="GroupManagement.php" class="list-group-item">Group Management</a>
-					<a href="UserList.php" class="list-group-item">UserList</a>
+                    <a href="admin.php" class="list-group-item">Group Management</a>
                     <a href="UserManagement.php" class="list-group-item">User Management</a>
                     <a href="account.php" class="list-group-item">Account Information</a>
+                    <a href="dashboard.php" class="list-group-item">Dashboard</a>
 
                 </div>
             </div>
