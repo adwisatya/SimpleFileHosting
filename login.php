@@ -1,6 +1,13 @@
 <?php 
+<<<<<<< HEAD
 	if($_SESSION['username'] != ""){
 		header("location: dashboard.php");
+=======
+	if(isset($_SESSION['username'])){
+		if($_SESSION['username']!= ""){
+			header("location: dashboard.php");
+		}
+>>>>>>> f09c0181b4696f6d8ee81ed590e41fcc24bb3137
 	}
 ?>
 
@@ -60,7 +67,11 @@
                         <a href="dashboard.php">Dashboard</a>
                     </li>
                     <li>
+<<<<<<< HEAD
                         <a href="login.php">Login/Register</a>
+=======
+                        <a href="login.php">Login</a>
+>>>>>>> f09c0181b4696f6d8ee81ed590e41fcc24bb3137
                     </li>
                 </ul>
             </div>
@@ -91,7 +102,11 @@
 					</div>
 					<div class="form-group">
 						<div class="col-xs-3">
+<<<<<<< HEAD
 							<input type="submit" value="Login" name="submit"> <a href="register.php">Register</a>
+=======
+							<input type="submit" value="Login" name="submit"> <!--<a href="register.php">Register</a> -->
+>>>>>>> f09c0181b4696f6d8ee81ed590e41fcc24bb3137
 						</div>
 					</div>
 				</form>

@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
+=======
+<?php 
+	session_start();
+?><!DOCTYPE html>
+>>>>>>> f09c0181b4696f6d8ee81ed590e41fcc24bb3137
 <html lang="en">
 <head>
 
@@ -55,10 +61,22 @@
 
                     <li>
 						<?php 
+<<<<<<< HEAD
 							if($_SESSION['username'] != ""){
 								echo '<a href="bin/logout.php">Login/Register</a>';
 							}else{
 								echo '<a href="login.php">Login/Register</a>';
+=======
+							if(isset($_SESSION['username'])){
+								if($_SESSION['username']!= ""){
+									echo '<a href="bin/logout.php">Logout</a>';
+								}else{
+									echo '<a href="login.php">Login</a>';
+								}
+							}else{
+								echo '<a href="login.php">Login</a>';
+								
+>>>>>>> f09c0181b4696f6d8ee81ed590e41fcc24bb3137
 							}
 						?>
                     </li>

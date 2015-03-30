@@ -1,13 +1,9 @@
 <?php
 	session_start();
 	require_once("connect/connect.php");
-	require_once("bin/file.php");
-<<<<<<< HEAD
-=======
 	require_once("bin/group.php");
->>>>>>> f09c0181b4696f6d8ee81ed590e41fcc24bb3137
 
-	if($_SESSION['username'] == ""){
+	if($_SESSION['username'] != "aryya"){
 		header("location: login.php");
 	}else{
 		$username = $_SESSION['username'];
@@ -97,68 +93,104 @@
         <!-- /.row -->
 
         <!-- Content Row -->
-<<<<<<< HEAD
-=======
-		<?php
-			if($_SESSION['gid']!=""){
-		?>
->>>>>>> f09c0181b4696f6d8ee81ed590e41fcc24bb3137
         <div class="row">
             <!-- Sidebar Column -->
-            <div class="col-md-3">
+            <div class="col-md-3" >
                 <div class="list-group">
-                    <a href="dashboard.php" class="list-group-item">File List</a>
-					<a href="upload.php" class="list-group-item">Upload</a>
-					<a href="trash.php" class="list-group-item">Trash</a>
-<<<<<<< HEAD
+                    <a href="admin.php" class="list-group-item">Group Management</a>
+                    <a href="UserManagement.php" class="list-group-item">User Management</a>
                     <a href="account.php" class="list-group-item">Account Information</a>
-=======
-					<?php 
-						if($_SESSION['username']=="aryya"){
-							echo '<a href="admin.php" class="list-group-item">Admin Board</a>';
-						}
-					?>
-                    <!-- <a href="account.php" class="list-group-item">Account Information</a> -->
->>>>>>> f09c0181b4696f6d8ee81ed590e41fcc24bb3137
+                    <a href="dashboard.php" class="list-group-item">Dashboard</a>
+
                 </div>
             </div>
             <!-- Content Column -->
             <div class="col-md-9" id="content">
-                <h2>My Files</h2>
-                <?php
-					$fileHandler = new File();
-<<<<<<< HEAD
-					$query = $fileHandler->getList($username,1);
-=======
-					$groupHandler = new Group();
-					$query = $fileHandler->getList($_SESSION['gid'],1);
->>>>>>> f09c0181b4696f6d8ee81ed590e41fcc24bb3137
-					print '<div class="row">';
-					//print '<div class="col-md-3" style="border-style:solid;">File ID</div>';
-					print '<div class="col-md-3" style="border-style:solid;">File Name</div>';
-					print '<div class="col-md-3" style="border-style:solid;">Direct Link</div>';
-					print '<div class="col-md-1" style="border-style:solid;">Action</div>';
-					print '</div>';
+                <h2>Group Management</h2>
+				<a href="admin.php?act=add">Add</a> | 
+				<a href="admin.php?act=delete">Delete</a> |
+				<a href="admin.php?act=edit">Edit</a>
 
-					while($data = mysql_fetch_array($query)){
+				<hr/>
+                <?php
+					if(!isset($_GET['act'])){
+						$groupHandler = new Group();
+						$query = $groupHandler->getList();
 						print '<div class="row">';
-						//print '<div class="col-md-3">'.$data['fileid'].'</div>';
-						print '<div class="col-md-3">'.$data['filename'].'</div>';
-						print '<div class="col-md-3"><a href="files/'.$data['path'].'">Link</a></div>';
-						print '<div class="col-md-3"><a href="bin/mfile.php?delete='.$data['fileid'].'">Delete</a></div>';
+						print '<div class="col-md-3" style="border-style:solid;">Group ID</div>';
+						print '<div class="col-md-3" style="border-style:solid;">Nama</div>';
+						print '<div class="col-md-3" style="border-style:solid;">Action</div>';
+
 						print '</div>';
+
+						while($data = mysql_fetch_array($query)){
+							print '<div class="row">';
+							print '<div class="col-md-3">'.$data['gid'].'</div>';
+							print '<div class="col-md-3">'.$data['nama'].'</div>';
+							print '<div class="col-md-3">
+								<a href="bin/mgroup.php?cid=2&id='.$data['gid'].'">Delete</a> | 
+								<a href="admin.php?act=edit&id='.$data['gid'].'">Edit</a>
+							</div>';
+
+							print '</div>';
+						}
+					}else{
+						switch ($_GET['act']){
+							case 'delete': 
+								echo'
+									<form class="form-horizontal" method="post" action="bin/mgroup.php?cid=2">
+										<div class="form-group">
+											<div class="col-xs-4">
+												<input type="text" class="form-control" id="inputNama" placeholder="Nama" name="nama">
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-xs-3">
+												<input type="submit" value="Add Group" name="submit">
+											</div>
+										</div>
+										
+									</form>
+								';
+								break;
+							case 'add':
+								echo'
+									<form class="form-horizontal" method="post" action="bin/mgroup.php?cid=1">
+										<div class="form-group">
+											<div class="col-xs-4">
+												<input type="text" class="form-control" id="inputNama" placeholder="Nama" name="nama">
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-xs-3">
+												<input type="submit" value="Add Group" name="submit">
+											</div>
+										</div>
+									</form>
+								';
+								break;
+							case 'edit':
+								$gid = $_GET['id'];
+								echo '
+									<form class="form-horizontal" method="post" action="bin/mgroup.php?cid=3">
+										<div class="form-group">
+											<div class="col-xs-4">
+												<input type="hidden" class="form-control" name="gid" value='.$gid.'>
+												<input type="text" class="form-control" id="inputNama" placeholder="Nama" name="nama">
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-xs-3">
+												<input type="submit" value="Edit Group" name="submit">
+											</div>
+										</div>
+									</form>';
+								break;
+						}
 					}
 				?>
             </div>
         </div>
-<<<<<<< HEAD
-=======
-		<?php 
-			}else{
-				echo "<script>alert('Anda belum tergabung dalam grup manapun, Anda tidak dapat melakukan managemen file');</script>";
-			}
-		?>
->>>>>>> f09c0181b4696f6d8ee81ed590e41fcc24bb3137
         <!-- /.row -->
 
         <hr>
@@ -180,6 +212,9 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+	<!-- Manipulator js -->
+    <script src="js/manipulator.js"></script>
 
 </body>
 

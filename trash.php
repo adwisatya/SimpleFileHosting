@@ -100,7 +100,16 @@
                     <a href="dashboard.php" class="list-group-item">File List</a>
 					<a href="upload.php" class="list-group-item">Upload</a>
 					<a href="trash.php" class="list-group-item">Trash</a>
+<<<<<<< HEAD
                     <a href="account.php" class="list-group-item">Account Information</a>
+=======
+					<?php 
+						if($_SESSION['username']=="aryya"){
+							echo '<a href="admin.php" class="list-group-item">Admin Board</a>';
+						}
+					?>
+                    <!-- <a href="account.php" class="list-group-item">Account Information</a> -->
+>>>>>>> f09c0181b4696f6d8ee81ed590e41fcc24bb3137
                 </div>
             </div>
             <!-- Content Column -->
@@ -108,7 +117,11 @@
                 <h2>My Trash</h2>
                 <?php
 					$fileHandler = new File();
+<<<<<<< HEAD
 					$query = $fileHandler->getList($username,0);
+=======
+					$query = $fileHandler->getList($_SESSION['gid'],0);
+>>>>>>> f09c0181b4696f6d8ee81ed590e41fcc24bb3137
 					print '<div class="row">';
 					print '<div class="col-md-3" style="border-style:solid;">File ID</div>';
 					print '<div class="col-md-3" style="border-style:solid;">File Name</div>';
