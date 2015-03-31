@@ -6,10 +6,14 @@
 		include("connect/connect.php");
 	}	
 	include "file.php";
+	include "log.php";
 	$fileHandler = new File();
+	$logHandler = new Log();
+
 	if(isset($_GET['delete'])){
 		if(!$_SESSION['status'=="0"]){
 			$fileHandler->addToTrash($_GET['delete']);
+			$logHandler->catat($_SESSION['username'],$fileHandler->getName($_GET['delete']),"Del",$_SESSION['gid']);
 		}
 		header("Location: ../dashboard.php");
 	}
