@@ -15,6 +15,7 @@ Class Group{
 	}
 	function updateInfo($gid, $leader){
 		$query = mysql_query("UPDATE `group` SET `leader` = '$leader' WHERE `gid` = $gid;");
+		$query2 = mysql_query("UPDATE `user` SET `status`='1' WHERE `username` = '$leader';");
 	}
 
 	function getFolder($id){
