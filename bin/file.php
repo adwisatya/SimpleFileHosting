@@ -18,7 +18,7 @@ Class File{
 	}
 	function recover($id){
 		$query = mysql_query("UPDATE file SET status='1' WHERE fileid='$id'");
-	}
+	} 
 	function permanentDelete($id){
 		$query1 = mysql_query("SELECT path FROM file WHERE fileid='$id'");
 		while($tobedeleted = mysql_fetch_array($query1)){
