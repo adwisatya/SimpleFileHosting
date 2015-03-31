@@ -100,26 +100,19 @@
                     <a href="dashboard.php" class="list-group-item">File List</a>
 					<a href="upload.php" class="list-group-item">Upload</a>
 					<a href="trash.php" class="list-group-item">Trash</a>
-<<<<<<< HEAD
-                    <a href="account.php" class="list-group-item">Account Information</a>
-=======
 					<?php 
 						if($_SESSION['username']=="aryya"){
 							echo '<a href="admin.php" class="list-group-item">Admin Board</a>';
 						}
 					?>
                     <!-- <a href="account.php" class="list-group-item">Account Information</a> -->
->>>>>>> f09c0181b4696f6d8ee81ed590e41fcc24bb3137
                 </div>
             </div>
             <!-- Content Column -->
             <div class="col-md-9" id="content">
                 <h2>Upload Files</h2>
 				<form method="post" action="bin/upload.php" enctype="multipart/form-data">
-<<<<<<< HEAD
-=======
 					<input type="hidden"  name="gid" value="<?php echo $_SESSION['gid']; ?>">
->>>>>>> f09c0181b4696f6d8ee81ed590e41fcc24bb3137
 					<input type="hidden"  name="username" value="<?php echo $_SESSION['username']; ?>">
 					<input type="file" id="file" name="userfile" multiple="multiple">
 					<input type="submit" name="submit" value="Upload">

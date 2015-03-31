@@ -3,10 +3,15 @@
 	require_once("connect/connect.php");
 	require_once("bin/group.php");
 
-	if($_SESSION['username'] != "aryya"){
+	if($_SESSION['username']==""){
 		header("location: login.php");
 	}else{
-		$username = $_SESSION['username'];
+		if($_SESSION['status'] != "9"){
+			$username = $_SESSION['username'];
+			header("location: dashboard.php");
+		}else{
+			$username = $_SESSION['username'];
+		}
 	}
 ?>
 

@@ -2,10 +2,7 @@
 	session_start();
 	require_once("connect/connect.php");
 	require_once("bin/file.php");
-<<<<<<< HEAD
-=======
 	require_once("bin/group.php");
->>>>>>> f09c0181b4696f6d8ee81ed590e41fcc24bb3137
 
 	if($_SESSION['username'] == ""){
 		header("location: login.php");
@@ -97,12 +94,9 @@
         <!-- /.row -->
 
         <!-- Content Row -->
-<<<<<<< HEAD
-=======
 		<?php
 			if($_SESSION['gid']!=""){
 		?>
->>>>>>> f09c0181b4696f6d8ee81ed590e41fcc24bb3137
         <div class="row">
             <!-- Sidebar Column -->
             <div class="col-md-3">
@@ -110,16 +104,12 @@
                     <a href="dashboard.php" class="list-group-item">File List</a>
 					<a href="upload.php" class="list-group-item">Upload</a>
 					<a href="trash.php" class="list-group-item">Trash</a>
-<<<<<<< HEAD
-                    <a href="account.php" class="list-group-item">Account Information</a>
-=======
 					<?php 
 						if($_SESSION['username']=="aryya"){
 							echo '<a href="admin.php" class="list-group-item">Admin Board</a>';
 						}
 					?>
                     <!-- <a href="account.php" class="list-group-item">Account Information</a> -->
->>>>>>> f09c0181b4696f6d8ee81ed590e41fcc24bb3137
                 </div>
             </div>
             <!-- Content Column -->
@@ -127,12 +117,8 @@
                 <h2>My Files</h2>
                 <?php
 					$fileHandler = new File();
-<<<<<<< HEAD
-					$query = $fileHandler->getList($username,1);
-=======
 					$groupHandler = new Group();
 					$query = $fileHandler->getList($_SESSION['gid'],1);
->>>>>>> f09c0181b4696f6d8ee81ed590e41fcc24bb3137
 					print '<div class="row">';
 					//print '<div class="col-md-3" style="border-style:solid;">File ID</div>';
 					print '<div class="col-md-3" style="border-style:solid;">File Name</div>';
@@ -145,20 +131,20 @@
 						//print '<div class="col-md-3">'.$data['fileid'].'</div>';
 						print '<div class="col-md-3">'.$data['filename'].'</div>';
 						print '<div class="col-md-3"><a href="files/'.$data['path'].'">Link</a></div>';
-						print '<div class="col-md-3"><a href="bin/mfile.php?delete='.$data['fileid'].'">Delete</a></div>';
+						if($_SESSION['status']!=0){
+							print '<div class="col-md-3"><a href="bin/mfile.php?delete='.$data['fileid'].'">Delete</a></div>';
+						}
 						print '</div>';
 					}
 				?>
             </div>
         </div>
-<<<<<<< HEAD
-=======
+
 		<?php 
 			}else{
 				echo "<script>alert('Anda belum tergabung dalam grup manapun, Anda tidak dapat melakukan managemen file');</script>";
 			}
 		?>
->>>>>>> f09c0181b4696f6d8ee81ed590e41fcc24bb3137
         <!-- /.row -->
 
         <hr>
