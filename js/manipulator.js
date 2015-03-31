@@ -1,15 +1,12 @@
-function groupList(){
-	document.getElementById('content').innerHTML="";
+function catat(){
+	var logging = document.getElementById('logging').value;
+	xmlhttp.open("GET","../bin/mlogging.php?data="+logging,true);
+	xmlhttp.send();
+	xmlhttp.open("GET","bin/mlogging.php?data="+logging,true);
+	xmlhttp.send();
 }
 
-function getGroupList(){
 
-	xmlhttp.open("POST",url,true);
-	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xmlhttp.setRequestHeader("Content-length", param.length);
-	xmlhttp.setRequestHeader("Connection", "close");
-	xmlhttp.send(param);
-}
 function GetXmlHttpObject() {
 	var xmlhttp=null;
 	try {

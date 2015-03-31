@@ -132,13 +132,14 @@
 					while($data = mysql_fetch_array($query)){
 						print '<div class="row">';
 						//print '<div class="col-md-3">'.$data['fileid'].'</div>';
-						print '<div class="col-md-3">'.$data['filename'].'</div>';
-						print '<div class="col-md-3"><a href="files/'.$data['path'].'">Link</a></div>';
+						print '<div class="col-md-3" id="namaFile">'.$data['filename'].'</div>';
+						print '<div class="col-md-3"><a href="files/'.$data['path'].'" onclick="catat();">Link</a></div>';
 						if($_SESSION['status']!=0){
 							print '<div class="col-md-3"><a href="bin/mfile.php?delete='.$data['fileid'].'">Delete</a></div>';
 						}
 						print '</div>';
 					}
+					print '<input type="hidden" id="logging" value="'.$username.",".$_SESSION['gid'].'">';
 				?>
             </div>
         </div>
@@ -169,6 +170,9 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+	<!-- custom -->
+    <script src="js/manipulator.js"></script>
 
 </body>
 
