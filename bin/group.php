@@ -2,11 +2,10 @@
 Class Group{
 	function getList(){
 		$query = mysql_query("SELECT * FROM `group`");
-		
-		// while($data = mysql_fetch_array($query)){
-			// print $data['gid']." ".$data['nama']." ".$data['folder']."<br/>";
-		// }
-		
+		return $query;
+	}
+	function getUserList($gid){
+		$query = mysql_query("SELECT username FROM `user` WHERE `gid`=$gid");
 		return $query;
 	}
 	function addToDB($nama, $folder){
@@ -14,8 +13,8 @@ Class Group{
 		mkdir("../files/".$folder,0777);
 		$query = mysql_query($sql);
 	}
-	function updateInfo($gid, $nama){
-		$query = mysql_query("UPDATE `group` SET `nama` = '$nama' WHERE `gid` = $gid;");
+	function updateInfo($gid, $leader){
+		$query = mysql_query("UPDATE `group` SET `leader` = '$leader' WHERE `gid` = $gid;");
 	}
 
 	function getFolder($id){
@@ -37,18 +36,5 @@ Class Group{
 		$query = mysql_query("DELETE FROM `group` WHERE `gid` = $id");
 		$query = mysql_query("UPDATE `user` SET `gid` = '' WHERE `gid`=$id");
 	}
-	/*
-	function addToTrash($id){
-		$query = mysql_query("UPDATE file SET status='0' WHERE fileid='$id'");
-	}
-	function recover($id){
-		$query = mysql_query("UPDATE file SET status='1' WHERE fileid='$id'");
-	}
-	*/
-
-	/*function checkOwner($id){
-		$query = mysql_query("SELECT username from file WHERE fileid='$id'");
-		return $query;
-	}*/
 }
 ?>

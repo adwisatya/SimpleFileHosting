@@ -17,7 +17,7 @@
 				break;
 			case 3:
 				$gid = $_POST['gid'];
-				$nama = $_POST['nama'];
+				$nama = $_POST['leader'];
 				$groupHandler->updateInfo($gid,$nama);
 				header("location: ../admin.php");
 				break;

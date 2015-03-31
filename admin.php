@@ -118,21 +118,23 @@
 
 				<hr/>
                 <?php
+					$groupHandler = new Group();
+					$query = $groupHandler->getList();
 					if(!isset($_GET['act'])){
-						$groupHandler = new Group();
-						$query = $groupHandler->getList();
+
 						print '<div class="row">';
 						print '<div class="col-md-3" style="border-style:solid;">Group ID</div>';
 						print '<div class="col-md-3" style="border-style:solid;">Nama</div>';
-						print '<div class="col-md-3" style="border-style:solid;">Action</div>';
-
+						print '<div class="col-md-2" style="border-style:solid;">Leader</div>';
+						print '<div class="col-md-2" style="border-style:solid;">Action</div>';
 						print '</div>';
 
 						while($data = mysql_fetch_array($query)){
 							print '<div class="row">';
 							print '<div class="col-md-3">'.$data['gid'].'</div>';
 							print '<div class="col-md-3">'.$data['nama'].'</div>';
-							print '<div class="col-md-3">
+							print '<div class="col-md-2">'.$data['leader'].'</div>';
+							print '<div class="col-md-2">
 								<a href="bin/mgroup.php?cid=2&id='.$data['gid'].'">Delete</a> | 
 								<a href="admin.php?act=edit&id='.$data['gid'].'">Edit</a>
 							</div>';
@@ -181,12 +183,20 @@
 										<div class="form-group">
 											<div class="col-xs-4">
 												<input type="hidden" class="form-control" name="gid" value='.$gid.'>
-												<input type="text" class="form-control" id="inputNama" placeholder="Nama" name="nama">
+												Group Leader: 
+												<select name="leader">
+									';
+									$userlist = $groupHandler->getUserList($gid);
+									while($data = mysql_fetch_array($userlist)){
+										print '<option value="'.$data['username'].'">'.$data['username']."</option>";
+									}
+								echo '
+												</select>
 											</div>
 										</div>
 										<div class="form-group">
 											<div class="col-xs-3">
-												<input type="submit" value="Edit Group" name="submit">
+												<input type="submit" value="Edit Group Leader" name="submit">
 											</div>
 										</div>
 									</form>';
