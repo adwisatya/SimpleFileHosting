@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2015 at 07:10 AM
+-- Generation Time: Apr 01, 2015 at 04:59 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `log` (
   `file` text NOT NULL,
   `time` varchar(20) NOT NULL,
   `gid` int(1) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `log`
@@ -92,7 +92,10 @@ INSERT INTO `log` (`no`, `action`, `actor`, `file`, `time`, `gid`) VALUES
 (2, 'Uploa', 'dwisatya', '11073978_1392549051062402_857399978304737814_n.jpg', '31-03-2015 08:25:44', 1),
 (3, 'Del', 'dwisatya', '11073978_1392549051062402_857399978304737814_n.jpg', '31-03-2015 08:36:34', 1),
 (4, 'View', 'dsdsa', 'sfdfs', '31-03-2015 09:06:25', 1),
-(5, 'View', 'dsdsa', 'sfdfs', '31-03-2015 09:06:31', 1);
+(5, 'View', 'dsdsa', 'sfdfs', '31-03-2015 09:06:31', 1),
+(6, 'VIEW', 'aryya', '1..txt', '01-04-2015 04:55:20', 1),
+(7, 'VIEW', 'aryya', '1..txt', '01-04-2015 04:56:48', 1),
+(8, 'VIEW', 'aryya', '60649.jpg', '01-04-2015 04:56:51', 1);
 
 -- --------------------------------------------------------
 
@@ -164,7 +167,7 @@ MODIFY `gid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT for table `log`
 --
 ALTER TABLE `log`
-MODIFY `no` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `no` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- Constraints for dumped tables
 --
