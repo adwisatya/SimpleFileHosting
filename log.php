@@ -109,7 +109,7 @@
 							echo '<a href="admin.php" class="list-group-item">Admin Board</a>';
 						}
 						if($_SESSION['status']!="0"){
-							echo '<a href="log.php?id='.$_SESSION['gid'].'" class="list-group-item">Log Board</a>';
+							echo '<a href="log.php" class="list-group-item">Log Board</a>';
 						}
 					?>
                     <!-- <a href="account.php" class="list-group-item">Account Information</a> -->

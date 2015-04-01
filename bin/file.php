@@ -36,5 +36,10 @@ Class File{
 		$tmp =  mysql_fetch_array($query);
 		return $tmp['filename'];
 	}
+	function getPath($id){
+		$query = mysql_query("SELECT path from `file` WHERE `fileid`='$id';");
+		$tmp =  mysql_fetch_array($query);
+		return $tmp['path'];
+	}
 }
 ?>

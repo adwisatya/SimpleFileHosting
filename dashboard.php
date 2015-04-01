@@ -109,7 +109,7 @@
 							echo '<a href="admin.php" class="list-group-item">Admin Board</a>';
 						}
 						if($_SESSION['status']!="0"){
-							echo '<a href="log.php?id='.$_SESSION['gid'].'" class="list-group-item">Log Board</a>';
+							echo '<a href="log.php" class="list-group-item">Log Board</a>';
 						}
 					?>
                     <!-- <a href="account.php" class="list-group-item">Account Information</a> -->
@@ -133,7 +133,7 @@
 						print '<div class="row">';
 						//print '<div class="col-md-3">'.$data['fileid'].'</div>';
 						print '<div class="col-md-3" id="namaFile">'.$data['filename'].'</div>';
-						print '<div class="col-md-3"><a href="files/'.$data['path'].'" onclick="catat();">Link</a></div>';
+						print '<div class="col-md-3"><a href="bin/view.php?fileid='.$data['fileid'].'">Link</a></div>';
 						if($_SESSION['status']!=0){
 							print '<div class="col-md-3"><a href="bin/mfile.php?delete='.$data['fileid'].'">Delete</a></div>';
 						}
