@@ -3,11 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
-<<<<<<< HEAD
--- Generation Time: Mar 24, 2015 at 01:36 PM
-=======
--- Generation Time: Mar 29, 2015 at 08:27 AM
->>>>>>> f09c0181b4696f6d8ee81ed590e41fcc24bb3137
+-- Generation Time: Apr 01, 2015 at 07:10 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -31,38 +27,23 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `file` (
-<<<<<<< HEAD
-  `fileid` int(5) NOT NULL,
-  `filename` text NOT NULL,
-  `path` text NOT NULL,
-  `status` int(1) NOT NULL,
-  `username` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-=======
 `fileid` int(5) NOT NULL,
   `filename` text NOT NULL,
   `path` text NOT NULL,
   `status` int(1) NOT NULL,
   `username` varchar(20) NOT NULL,
   `gid` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
->>>>>>> f09c0181b4696f6d8ee81ed590e41fcc24bb3137
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `file`
 --
 
-<<<<<<< HEAD
-INSERT INTO `file` (`fileid`, `filename`, `path`, `status`, `username`) VALUES
-(11111, 'Panduan Membuat Web.pdf', '23232312312321312312312.pdf', 1, 'aryya'),
-(11112, 'Fiu siu.exe', '27827872.exe', 1, 'aryya');
-=======
 INSERT INTO `file` (`fileid`, `filename`, `path`, `status`, `username`, `gid`) VALUES
-(3, '60649.jpg', 'b5d29785b34472212e7d8ecd0bd31a5f.jpg', 0, 'dwisatya', 2),
-(4, '11073978_1392549051062402_857399978304737814_n.jpg', '6f6c17174ce2fce94b366158f80ac648.jpg', 1, 'dwisatya', 2),
-(5, 'Untitled.png', 'a19ddbe22afc139c538bfca41cea40ad.png', 1, 'dwisatya2', 2),
-(6, '20150321_194554.jpg', '43f5f983d810d6cf931722ceb41ecb4d.jpg', 1, 'dwisatya2', 2),
-(7, '4224799000.png', '5008b8b1151c438027c12b054d497968.png', 1, 'dwisatya2', 2);
+(2, '1..txt', '../files/pembimbingra/008b4d9799a36547adc240c5436e5da5.txt', 1, 'dwisatya2', 2),
+(6, '1..txt', '../files/admin/008b4d9799a36547adc240c5436e5da5.txt', 1, 'dwisatya', 1),
+(7, '60649.jpg', '../files/admin/b5d29785b34472212e7d8ecd0bd31a5f.jpg', 1, 'dwisatya', 1),
+(8, '11073978_1392549051062402_857399978304737814_n.jpg', '../files/admin/6f6c17174ce2fce94b366158f80ac648.jpg', 0, 'dwisatya', 1);
 
 -- --------------------------------------------------------
 
@@ -73,18 +54,45 @@ INSERT INTO `file` (`fileid`, `filename`, `path`, `status`, `username`, `gid`) V
 CREATE TABLE IF NOT EXISTS `group` (
 `gid` int(11) NOT NULL,
   `nama` varchar(20) NOT NULL,
-  `folder` varchar(20) NOT NULL
+  `folder` varchar(20) NOT NULL,
+  `leader` varchar(20) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `group`
 --
 
-INSERT INTO `group` (`gid`, `nama`, `folder`) VALUES
-(2, 'pembimbing RA', 'pembimbingra'),
-(3, 'Buronan-edit', 'dasdsa'),
-(4, 'admin group', 'admin group');
->>>>>>> f09c0181b4696f6d8ee81ed590e41fcc24bb3137
+INSERT INTO `group` (`gid`, `nama`, `folder`, `leader`) VALUES
+(1, 'admin', 'admin', 'dwisatya'),
+(2, 'pembimbing RA', 'pembimbingra', 'dwisatya2'),
+(3, 'Buronan-edit', 'dasdsa', ''),
+(4, 'admin group', 'admin group', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `log`
+--
+
+CREATE TABLE IF NOT EXISTS `log` (
+`no` int(10) NOT NULL,
+  `action` varchar(5) NOT NULL,
+  `actor` varchar(20) NOT NULL,
+  `file` text NOT NULL,
+  `time` varchar(20) NOT NULL,
+  `gid` int(1) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `log`
+--
+
+INSERT INTO `log` (`no`, `action`, `actor`, `file`, `time`, `gid`) VALUES
+(1, 'Uploa', 'dwisatya', '60649.jpg', '31-03-2015 08:24:44', 0),
+(2, 'Uploa', 'dwisatya', '11073978_1392549051062402_857399978304737814_n.jpg', '31-03-2015 08:25:44', 1),
+(3, 'Del', 'dwisatya', '11073978_1392549051062402_857399978304737814_n.jpg', '31-03-2015 08:36:34', 1),
+(4, 'View', 'dsdsa', 'sfdfs', '31-03-2015 09:06:25', 1),
+(5, 'View', 'dsdsa', 'sfdfs', '31-03-2015 09:06:31', 1);
 
 -- --------------------------------------------------------
 
@@ -96,29 +104,19 @@ CREATE TABLE IF NOT EXISTS `user` (
   `username` varchar(20) NOT NULL,
   `password` varchar(32) NOT NULL,
   `email` text NOT NULL,
-<<<<<<< HEAD
-  `active` int(1) NOT NULL
-=======
   `active` int(1) NOT NULL,
-  `gid` int(11) NOT NULL
->>>>>>> f09c0181b4696f6d8ee81ed590e41fcc24bb3137
+  `gid` int(11) NOT NULL,
+  `status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-<<<<<<< HEAD
-INSERT INTO `user` (`username`, `password`, `email`, `active`) VALUES
-('aryya', '84c29c7a16116c6e549fcafdc4a8fcf1', 'a.dwisatya@yahoo.com', 1),
-('aryyaedwisatya', '7c1cadb6887373dacb595c47166bfbd9', 'aryya@gdoogle.com', 0),
-('dwisatya', 'afe22da9ddbcb15d6ae186a56fd280fa', 'dwisatya', 0);
-=======
-INSERT INTO `user` (`username`, `password`, `email`, `active`, `gid`) VALUES
-('aryya', '84c29c7a16116c6e549fcafdc4a8fcf1', 'a.dwisaty4@yahoo.com', 1, 1),
-('dwisatya', '84c29c7a16116c6e549fcafdc4a8fcf1', 'dwisatya@yahoo.com', 1, 2),
-('dwisatya2', '84c29c7a16116c6e549fcafdc4a8fcf1', 'adwisatya@yahoo.com', 1, 2);
->>>>>>> f09c0181b4696f6d8ee81ed590e41fcc24bb3137
+INSERT INTO `user` (`username`, `password`, `email`, `active`, `gid`, `status`) VALUES
+('aryya', '84c29c7a16116c6e549fcafdc4a8fcf1', 'a.dwisaty4@yahoo.com', 1, 1, 9),
+('dwisatya', '84c29c7a16116c6e549fcafdc4a8fcf1', 'dwisatya@yahoo.com', 1, 1, 1),
+('dwisatya2', '84c29c7a16116c6e549fcafdc4a8fcf1', 'adwisatya@yahoo.com', 1, 2, 1);
 
 --
 -- Indexes for dumped tables
@@ -128,9 +126,6 @@ INSERT INTO `user` (`username`, `password`, `email`, `active`, `gid`) VALUES
 -- Indexes for table `file`
 --
 ALTER TABLE `file`
-<<<<<<< HEAD
- ADD PRIMARY KEY (`fileid`);
-=======
  ADD PRIMARY KEY (`fileid`), ADD KEY `gid` (`gid`);
 
 --
@@ -138,7 +133,12 @@ ALTER TABLE `file`
 --
 ALTER TABLE `group`
  ADD PRIMARY KEY (`gid`);
->>>>>>> f09c0181b4696f6d8ee81ed590e41fcc24bb3137
+
+--
+-- Indexes for table `log`
+--
+ALTER TABLE `log`
+ ADD PRIMARY KEY (`no`);
 
 --
 -- Indexes for table `user`
@@ -146,8 +146,6 @@ ALTER TABLE `group`
 ALTER TABLE `user`
  ADD PRIMARY KEY (`username`);
 
-<<<<<<< HEAD
-=======
 --
 -- AUTO_INCREMENT for dumped tables
 --
@@ -156,12 +154,17 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `file`
 --
 ALTER TABLE `file`
-MODIFY `fileid` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+MODIFY `fileid` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `group`
 --
 ALTER TABLE `group`
 MODIFY `gid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `log`
+--
+ALTER TABLE `log`
+MODIFY `no` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- Constraints for dumped tables
 --
@@ -172,7 +175,6 @@ MODIFY `gid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 ALTER TABLE `file`
 ADD CONSTRAINT `file_ibfk_1` FOREIGN KEY (`gid`) REFERENCES `group` (`gid`) ON DELETE CASCADE;
 
->>>>>>> f09c0181b4696f6d8ee81ed590e41fcc24bb3137
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
