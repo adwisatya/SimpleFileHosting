@@ -13,7 +13,7 @@
 	if(isset($_GET['delete'])){
 		if(!$_SESSION['status'=="0"]){
 			$fileHandler->addToTrash($_GET['delete']);
-			$logHandler->catat($_SESSION['username'],$fileHandler->getName($_GET['delete']),"Del",$_SESSION['gid']);
+			$logHandler->catat($_SESSION['username'],$fileHandler->getName($_GET['delete']),"DLT",$_SESSION['gid']);
 		}
 		header("Location: ../dashboard.php");
 	}

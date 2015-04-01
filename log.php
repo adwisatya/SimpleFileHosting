@@ -3,7 +3,7 @@
 	require_once("connect/connect.php");
 	require_once("bin/file.php");
 	require_once("bin/group.php");
-
+	require_once("bin/log.php");
 	if($_SESSION['username'] == ""){
 		header("location: login.php");
 	}else{
@@ -21,7 +21,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Research Assistant File Hosting - Dashboard</title>
+    <title>Research Assistant File Hosting - Log Board</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -117,29 +117,27 @@
             </div>
             <!-- Content Column -->
             <div class="col-md-9" id="content">
-                <h2>My Files</h2>
+                <h2>Log Activity</h2>
                 <?php
-					$fileHandler = new File();
-					$groupHandler = new Group();
-					$query = $fileHandler->getList($_SESSION['gid'],1);
+					
+					$logHandler = new Log();
+					$query = $logHandler->view($_SESSION['gid'],1);
 					print '<div class="row">';
-					//print '<div class="col-md-3" style="border-style:solid;">File ID</div>';
-					print '<div class="col-md-3" style="border-style:solid;">File Name</div>';
-					print '<div class="col-md-3" style="border-style:solid;">Direct Link</div>';
 					print '<div class="col-md-1" style="border-style:solid;">Action</div>';
+					print '<div class="col-md-1" style="border-style:solid;">Actor</div>';
+					print '<div class="col-md-7" style="border-style:solid;">File</div>';
+					print '<div class="col-md-2" style="border-style:solid;">Time</div>';
 					print '</div>';
 
 					while($data = mysql_fetch_array($query)){
 						print '<div class="row">';
-						//print '<div class="col-md-3">'.$data['fileid'].'</div>';
-						print '<div class="col-md-3" id="namaFile">'.$data['filename'].'</div>';
-						print '<div class="col-md-3"><a href="files/'.$data['path'].'" onclick="catat();">Link</a></div>';
-						if($_SESSION['status']!=0){
-							print '<div class="col-md-3"><a href="bin/mfile.php?delete='.$data['fileid'].'">Delete</a></div>';
-						}
+						print '<div class="col-md-1">'.$data['action'].'</div>';
+						print '<div class="col-md-1">'.$data['actor'].'</div>';
+						print '<div class="col-md-7">'.$data['file'].'</div>';
+						print '<div class="col-md-2">'.$data['time'].'</div>';
+
 						print '</div>';
 					}
-					print '<input type="hidden" id="logging" value="'.$username.",".$_SESSION['gid'].'">';
 				?>
             </div>
         </div>

@@ -18,7 +18,7 @@
 	if(move_uploaded_file($_FILES['userfile']['tmp_name'],$path)){
 		$fileHandler = new File();
 		$fileHandler->addToDB($file,$path,$username,$gid);
-		$logHandler->catat($username,$file,"Upld",$gid);
+		$logHandler->catat($username,$file,"UPLD",$gid);
 		header("location: ../upload.php");
 	}
 ?>
