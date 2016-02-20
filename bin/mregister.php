@@ -7,7 +7,8 @@
 				$username = 	$_POST['username'];
 				$password =		$_POST['password'];
 				$email	= 	$_POST['email'];
-				$registrator->addUser($username,$password,$email);
+				$csrf_token = $_POST['csrf_token'];
+				$registrator->addUser($username,$password,$email,$csrf_token);
 				header("location: ../login.php");
 				break;
 		case 2: 

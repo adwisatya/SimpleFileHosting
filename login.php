@@ -19,6 +19,7 @@
 					<div class="form-group">
 						<div class="col-xs-4">
 							<input type="text" class="form-control" id="inputUsername" placeholder="Username" name="username">
+                            <input type="hidden" name="csrf_token" value="<?php echo generate_csrf_token();?>">
 						</div>
 					</div>
 					<div class="form-group">

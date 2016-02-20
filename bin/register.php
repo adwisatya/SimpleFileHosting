@@ -3,11 +3,18 @@
 		include("../connect/connect.php");
 	}else{
 		include("connect/connect.php");
+
 	}
+	include("function.php");
+
 	Class Register{
 		/* OK */
-		function addUser($username, $password, $email){
-			$query = mysql_query("INSERT INTO user (username, password, email, active) VALUES('$username','".md5($password)."','$email','1')");
+		function addUser($username, $password, $email,$csrf_token){
+			if($csrf_token == generate_csrf_token()){
+				$query = mysql_query("INSERT INTO user (username, password, email, active) VALUES('$username','".md5($password)."','$email','1')");
+			}else{
+				return false;
+			}
 		}
 		/* OK */
 		function delUser($username){
