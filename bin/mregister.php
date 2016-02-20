@@ -9,7 +9,11 @@
 				$email	= 	$_POST['email'];
 				$csrf_token = $_POST['csrf_token'];
 				$registrator->addUser($username,$password,$email,$csrf_token);
-				header("location: ../login.php");
+				if(!$registrator->addUser($username,$password,$email,$csrf_token)){
+					header("location: ../login.php");
+				}else{
+					header("location: ../register.php");
+				}
 				break;
 		case 2: 
 				$username = 	$_POST['username'];

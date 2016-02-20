@@ -2,7 +2,7 @@
 	if(isset($_SESSION['username'])){
 		header("location: dashboard.php");
 	}
-    include("template/header.php");
+    require_once("template/header.php");
 ?>
 
     <!-- Page Content -->

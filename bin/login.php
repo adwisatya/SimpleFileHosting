@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	require_once("../connect/connect.php");
-	include("function.php");
+	require_once("function.php");
 	Class Login{
 		function cekLogin($username, $password,$csrf_token){
 			if($csrf_token == generate_csrf_token()){
